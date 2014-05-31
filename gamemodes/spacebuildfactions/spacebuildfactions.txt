@@ -1,0 +1,15 @@
+"spacebuildfactions"
+{
+	"base"		"spacebuild2"
+	"title"		"Spacebuild Factions"
+	"version"	"1.1"
+	"maps"		"^fac_"
+
+	"author_name"	"Team Ring-Ding + philxyz"
+	"author_email"	"ring2ding@gmail.com"
+	"author_url"	"http://www.sbfactions.blogspot.com/"
+	
+	"info"		"Spacebuild Factions Gamemode"
+	"hide"		"0"
+	"menusystem"	"1"
+}

@@ -1,0 +1,5 @@
+"eyes"
+{
+	"$basetexture" "models/vortigaunt/eyeball_green"
+	"$iris" "models/vortigaunt/pupil_green"
+}

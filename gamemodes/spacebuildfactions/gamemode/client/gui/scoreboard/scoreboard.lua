@@ -1,0 +1,380 @@
+------------------------------------------
+-- Spacebuild Factions
+-- Team Ring-Ding
+------------------------------------------
+
+include( "player_row.lua" )
+include( "player_frame.lua" )
+
+surface.CreateFont( "ScoreboardHeader", {
+	font = "coolvetica",
+	size = 34,
+	weight = 300,
+	antialias = true,
+	shadow = false
+})
+
+surface.CreateFont( "ScoreboardSubtitle", {
+	font = "coolvetica",
+	size = 22,
+	weight = 500,
+	antialias = true,
+	shadow = false
+})
+
+surface.CreateFont( "Body", {
+	font = "middages",
+	size = 18,
+	weight = 700,
+	antialias = true,
+	shadow = false
+})
+
+surface.CreateFont( "ScoreboardLabel", {
+	font = "middages",
+	size = 13,
+	weight = 700,
+	antialias = true,
+	shadow = false
+})
+
+local texGradient 	= surface.GetTextureID( "gui/center_gradient" )
+local texBG 	    = surface.GetTextureID( "gui/scoreboard/bg" )
+local texLogo 		= surface.GetTextureID( "gui/scoreboard/logo" )
+local humanheader   = surface.GetTextureID( "gui/scoreboard/humanheader2" )
+local alienheader   = surface.GetTextureID( "gui/scoreboard/alienheader2" )
+
+
+local PANEL = {}
+
+--[[-------------------------------------------------------
+   Name: Paint
+---------------------------------------------------------]]
+function PANEL:Init()
+
+	SCOREBOARD = self
+
+	self.Hostname = vgui.Create( "Label", self )
+	self.Hostname:SetText( GetGlobalString( "ServerName" ) )
+
+	self.HumanHeader = vgui.Create( "Label", self )
+	self.HumanHeader:SetText( "" )
+	
+	self.AlienHeader = vgui.Create( "Label", self )
+	self.AlienHeader:SetText( "" )
+	
+	self.PlayerFrameHuman = vgui.Create( "PlayerFrame", self )
+	self.PlayerFrameAlien = vgui.Create( "PlayerFrame", self )
+	
+	self.HumanLbl = {}
+		self.HumanLbl.Planets = vgui.Create( "Label", self )
+		self.HumanLbl.Planets:SetText( "Planets" )
+		
+		self.HumanLbl.Ping = vgui.Create( "Label", self )
+		self.HumanLbl.Ping:SetText( "Ping" )
+		
+		self.HumanLbl.Kills = vgui.Create( "Label", self )
+		self.HumanLbl.Kills:SetText( "Kills" )
+		
+		self.HumanLbl.Deaths = vgui.Create( "Label", self )
+		self.HumanLbl.Deaths:SetText( "Deaths" )
+	
+	self.AlienLbl = {}
+		self.AlienLbl.Planets = vgui.Create( "Label", self )
+		self.AlienLbl.Planets:SetText( "Planets" )
+		
+		self.AlienLbl.Ping = vgui.Create( "Label", self )
+		self.AlienLbl.Ping:SetText( "Ping" )
+		
+		self.AlienLbl.Kills = vgui.Create( "Label", self )
+		self.AlienLbl.Kills:SetText( "Kills" )
+		
+		self.AlienLbl.Deaths = vgui.Create( "Label", self )
+		self.AlienLbl.Deaths:SetText( "Deaths" )
+		
+	self.Mode = vgui.Create( "Label", self )
+	self.Mode:SetText( "Free" ) --predict that it's going to be free mode
+	
+	if not Factions.Addons.Content then --player doesnt have content pack
+		self.HumanHeader:SetText( "Humans" )
+		self.AlienHeader:SetText( "Aliens" )
+		
+		self.Header = vgui.Create( "Label", self )
+		self.Header:SetText( "Humans Vs Aliens" )
+		
+		self.Header2 = vgui.Create( "Label", self )
+		self.Header2:SetText( "-Spacebuild Roleplay-" )
+		
+		self.GetContentLabel = vgui.Create( "Label", self )
+		self.GetContentLabel:SetText( "Ask about the Factions content package for prettier GUI!" )
+	end
+		
+	self.PlayerRows = {}
+
+	self:UpdateScoreboard()
+	
+	timer.Create( "ScoreboardUpdater", .1, 0, function() self:UpdateScoreboard() end )
+	
+end
+
+--[[-------------------------------------------------------
+   Name: Paint
+---------------------------------------------------------]]
+function PANEL:AddPlayerRow( ply )
+	for k, v in pairs( self.PlayerRows ) do
+		if k == ply then
+			self.PlayerRows[ ply ] = nil
+			v:Remove()
+		end
+	end
+	local button
+	if ply:Team() == TEAM_HUMANS then
+		button = vgui.Create( "ScorePlayerRow", self.PlayerFrameHuman:GetCanvas() )
+	elseif ply:Team() == TEAM_ALIENS then
+		button = vgui.Create( "ScorePlayerRow", self.PlayerFrameAlien:GetCanvas() )
+	else
+		button = vgui.Create( "ScorePlayerRow", self.PlayerFrameHuman:GetCanvas() )
+	end
+	button:SetPlayer( ply )
+	self.PlayerRows[ ply ] = button
+end
+
+--[[-------------------------------------------------------
+   Name: Paint
+---------------------------------------------------------]]
+function PANEL:GetPlayerRow( ply )
+
+	return self.PlayerRows[ ply ]
+
+end
+
+--[[-------------------------------------------------------
+   Name: Paint
+---------------------------------------------------------]]
+function PANEL:Paint(x, y)
+
+	if Factions.Addons.Content then
+		surface.SetTexture( texBG )
+		surface.SetDrawColor( 255, 255, 255, 255 )
+		surface.DrawTexturedRect( 0, 0, self:GetWide(), self:GetTall(), 250, 600 )
+
+		-- Humans Team Header
+		
+		surface.SetTexture( humanheader )
+		surface.SetDrawColor( 255, 255, 255, 255 )
+		surface.DrawTexturedRect( 4, self.HumanHeader.y - 38, self:GetWide() - 8, 64 )
+		
+		-- Aliens Team Header
+		
+		surface.SetTexture( alienheader )
+		surface.SetDrawColor( 255, 255, 255, 255 )
+		surface.DrawTexturedRect( 4, self.AlienHeader.y - 38, self:GetWide() - 8, 64 )
+
+		-- Logo
+		surface.SetTexture( texLogo )
+		surface.SetDrawColor( 255, 255, 255, 255 )
+		surface.DrawTexturedRect( 0, 0, 512, 128 )
+	else
+		draw.RoundedBox( 10, 0, 0, self:GetWide(), self:GetTall(), Color( 100, 139, 221, 175 ) )
+	end
+	
+	-- Black Inner Box
+	draw.RoundedBox( 4, 20, self.HumanHeader.y, self:GetWide() - 40, self.PlayerFrameAlien:GetCanvas():GetTall() + self.PlayerFrameHuman:GetCanvas():GetTall() + self.AlienHeader:GetTall() + self.HumanHeader:GetTall() , Color( 20, 20, 20, 150 ) )
+	
+end
+
+
+--[[-------------------------------------------------------
+   Name: PerformLayout
+---------------------------------------------------------]]
+function PANEL:PerformLayout()
+
+	self.Hostname:SizeToContents()
+	self.Hostname:SetPos( 80, 84 )
+	
+	self.HumanHeader:SizeToContents()
+	self.HumanHeader:SetPos( 170, 108 )
+	
+	self.Mode:SizeToContents()
+	self.Mode:SetPos( 480, 84 )
+	
+	if not iTall then
+		iTall = 300
+		iTall = math.Clamp( iTall, 100, ScrH() * 0.9 )
+	end
+	if not iWide then
+		iWide = 512
+	end
+	
+	self:SetSize( iWide, iTall )
+	self:SetPos( (ScrW() - self:GetWide()) / 2, (ScrH() - self:GetTall()) / 3 )
+	
+	self.PlayerFrameHuman:SetPos( 22, self.HumanHeader.y + self.HumanHeader:GetTall() + 3 )
+	self.PlayerFrameHuman:SetSize( self:GetWide() - 44, self:GetTall() - self.PlayerFrameHuman.y - 10 )
+	
+	self.PlayerFrameAlien:SetPos( 22, self.AlienHeader.y + self.AlienHeader:GetTall() + 3 )
+	self.PlayerFrameAlien:SetSize( self:GetWide() - 44 , self:GetTall() - self.PlayerFrameAlien.y - 10 )
+	
+	local yh = 0
+	local ya = 0
+	
+	local PlayerSorted = {}
+	
+	for k, v in pairs( self.PlayerRows ) do
+	
+		table.insert( PlayerSorted, v )
+		
+	end
+	
+	table.sort( PlayerSorted, function ( a , b) return a:HigherOrLower( b ) end )
+	
+	for k, v in ipairs( PlayerSorted ) do
+	
+		if v.Player:Team() == TEAM_HUMANS then
+			
+			v:SetPos( 0, yh )
+			v:SetSize( self.PlayerFrameHuman:GetWide(), v:GetTall() )
+			
+			self.PlayerFrameHuman:GetCanvas():SetSize( self.PlayerFrameHuman:GetCanvas():GetWide(), yh + v:GetTall() )
+			
+			yh = yh + v:GetTall() + 1
+			
+		elseif v.Player:Team() == TEAM_ALIENS then
+		
+			v:SetPos( 0, ya )
+			v:SetSize( self.PlayerFrameHuman:GetWide(), v:GetTall() )
+			
+			self.PlayerFrameAlien:GetCanvas():SetSize( self.PlayerFrameHuman:GetCanvas():GetWide(), ya + v:GetTall() )
+			
+			ya = ya + v:GetTall() + 1
+		
+		else
+			v:SetSize( 0, 0 )
+		end
+	end
+	
+	self.AlienHeader:SizeToContents()
+	self.AlienHeader:SetPos( 174, self.PlayerFrameHuman.y + yh )
+	
+	iTall = math.Clamp( self.PlayerFrameAlien:GetCanvas():GetTall() + self.PlayerFrameHuman:GetCanvas():GetTall() + self.AlienHeader:GetTall() + self.HumanHeader:GetTall() + self.HumanHeader.y + 20, 170, ScrH() - 5 )
+	
+	self:SetSize( iWide, iTall )
+	
+	self.Hostname:SetText( GetGlobalString( "ServerName" ) )
+	self.Mode:SetText( Factions.GetNWVar( "Mode", "" ) )
+	
+	if Factions.GetNWVar( "Mode" ) == "War" then
+		self.HumanLbl.Planets:SetText( "Score: " .. team.GetScore( TEAM_HUMANS ) )
+		self.AlienLbl.Planets:SetText( "Score: " .. team.GetScore( TEAM_ALIENS ) )
+	else
+		self.HumanLbl.Planets:SetText( "Planets" )
+		self.AlienLbl.Planets:SetText( "Planets" )
+	end
+	
+	self.HumanLbl.Planets:SizeToContents()
+		self.HumanLbl.Kills:SizeToContents()
+		self.HumanLbl.Deaths:SizeToContents()
+		self.HumanLbl.Ping:SizeToContents()
+		
+		self.HumanLbl.Planets:SetPos( 260, self.HumanHeader.y + 4 )
+		self.HumanLbl.Kills:SetPos( 341, self.HumanHeader.y + 4 )
+		self.HumanLbl.Deaths:SetPos( 396, self.HumanHeader.y + 4 )
+		self.HumanLbl.Ping:SetPos( 461, self.HumanHeader.y + 4 )
+	
+	self.AlienLbl.Planets:SizeToContents()
+		self.AlienLbl.Kills:SizeToContents()
+		self.AlienLbl.Deaths:SizeToContents()
+		self.AlienLbl.Ping:SizeToContents()
+		
+		self.AlienLbl.Planets:SetPos( 260, self.AlienHeader.y + 4 )
+		self.AlienLbl.Kills:SetPos( 341, self.AlienHeader.y + 4 )
+		self.AlienLbl.Deaths:SetPos( 396, self.AlienHeader.y + 4 )
+		self.AlienLbl.Ping:SetPos( 461, self.AlienHeader.y + 4 )
+
+	if not Factions.Addons.Content then
+		self.Header:SizeToContents()
+		self.Header:SetPos( iWide / 2 - self.Header:GetWide() / 2, 10 )
+		
+		self.Header2:SizeToContents()
+		self.Header2:SetPos( iWide / 2 - self.Header2:GetWide() / 2, self.Header.y + self.Header:GetTall() + 4 )
+		
+		self.GetContentLabel:SizeToContents()
+		self.GetContentLabel:SetPos( iWide / 2 - self.GetContentLabel:GetWide() / 2, iTall - self.GetContentLabel:GetTall() - 4 )
+	end
+		
+end
+
+--[[-------------------------------------------------------
+   Name: ApplySchemeSettings
+---------------------------------------------------------]]
+function PANEL:ApplySchemeSettings()
+	local color_white = color_white
+
+	if not Factions.Addons.Content then
+		self.Header:SetFont( "ScoreboardHeader" )
+		self.Header2:SetFont( "ScoreboardSubtitle" )
+		
+		self.GetContentLabel:SetFont( "ScoreboardLabel" )
+	end
+	
+	self.Hostname:SetFont( "" )
+	self.HumanHeader:SetFont( "ScoreboardSubtitle" )
+	self.AlienHeader:SetFont( "ScoreboardSubtitle" )
+	self.Mode:SetFont( "" )
+	
+	self.Hostname:SetFGColor( color_white )
+	self.HumanHeader:SetFGColor( color_white )
+	self.AlienHeader:SetFGColor( color_white )
+	self.Mode:SetFGColor( color_white )
+
+	self.HumanLbl.Planets:SetFont( "ScoreboardLabel" )
+		self.HumanLbl.Kills:SetFont( "ScoreboardLabel" )
+		self.HumanLbl.Deaths:SetFont( "ScoreboardLabel" )
+		self.HumanLbl.Ping:SetFont( "ScoreboardLabel" )
+		
+		self.HumanLbl.Planets:SetFGColor( color_white )
+		self.HumanLbl.Kills:SetFGColor( color_white )
+		self.HumanLbl.Deaths:SetFGColor( color_white )
+		self.HumanLbl.Ping:SetFGColor( color_white )
+	
+	self.AlienLbl.Planets:SetFont( "ScoreboardLabel" )
+		self.AlienLbl.Kills:SetFont( "ScoreboardLabel" )
+		self.AlienLbl.Deaths:SetFont( "ScoreboardLabel" )
+		self.AlienLbl.Ping:SetFont( "ScoreboardLabel" )
+		
+		self.AlienLbl.Planets:SetFGColor( color_white )
+		self.AlienLbl.Kills:SetFGColor( color_white )
+		self.AlienLbl.Deaths:SetFGColor( color_white )
+		self.AlienLbl.Ping:SetFGColor( color_white )
+	
+end
+
+
+function PANEL:UpdateScoreboard( force )
+
+	if ( not force and not self:IsVisible() ) then return end
+
+	for k, v in pairs( self.PlayerRows ) do
+	
+		if ( not k:IsValid() ) then
+		
+			v:Remove()
+			self.PlayerRows[ k ] = nil
+			
+		end
+	
+	end
+	
+	local PlayerList = player.GetAll()	
+	for id, pl in pairs( PlayerList ) do
+	
+		self:AddPlayerRow( pl )
+		
+	end
+	
+	-- Always invalidate the layout so the order gets updated
+	self:InvalidateLayout()
+
+end
+
+vgui.Register( "ScoreBoard", PANEL, "Panel" )

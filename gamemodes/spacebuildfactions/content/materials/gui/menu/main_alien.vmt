@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture"		"gui/menu/main_alien"
+	"$ignorez"		1
+	"$vertexcolor" 		1
+	"$vertexalpha" 		1
+}

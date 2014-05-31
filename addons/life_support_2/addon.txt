@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Life Support 2"
+	"version"			"FINAL"
+	"up_date"			"09-08-2008"
+	"author_name"			"LS/RD/SB Team"
+	"author_email"			""
+	"author_url"			"http://snakesvx.blogdns.com/"
+	"info"				"Adds Life Support Systems."
+	"override"			"0"
+}

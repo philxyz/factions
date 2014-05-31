@@ -1,0 +1,179 @@
+-----Factions 1.1.0-----
+[!] Fixed Factions to work with Gmod 13
+[+] Include updated mapping tutorials
+
+-----FactionsRKS 1.0.1-----
+[!] Add a time limit on the team change to avoid welcome-sound spamming during long logins
+[!] Fix "dynamite purchasable by non-admins"
+[!] Fix Jukebox auto-start
+[!] Remove all props when switching to war mode so you can't sell for unfair start
+[!] Remove a load of annoying ^M characters (CRLF -> LF) since I edit this in UNIX and it looks a mess with all the carriage returns there
+
+-----FactionsRKS 1.0-----
+[!] Customize various settings for RKSZone
+
+-----Factions Version 1.0-----
+[!] Fixed war mode
+[!] Fixed occasional GUI lua error spamming
+[!] Fixed players occasionally not spawning on homeplanets when switching to war mode
+[!] Fixed being able to capture planets you already own
+[!] Fixed players being able to capture planets when they are dead
+[!] Changed the name from Global RP to Spacebuild Factions
+
+-----Version 2.7c----
+[+] New players now start with $500
+
+[!] Ironsights are no longer forced by default
+[!] Changed physgun cost from $250 to $150
+[!] Fixed an incompatibility issue with Spacetech's Prop Protection relating to flag capturing
+[!] Players now get 100% of money spent back when selling props
+[!] Changed planet income from $50 to $100
+[!] Fixed players not being able to hurt eachother
+[!] Fixed Global RP ships not loading in Advanced Duplicator
+
+-----Version 2.7b----
+[!] Fixed Garry's camera
+[!] Fixed spawning of transformers
+[!] Fixed a bug preventing transformer removal reimbursement
+[!] Fixed bug: Timer Error: globalrp\gamemode\server/entdamagesystem.lua:176: attempt to index global 'ent' (a nil value)
+[!] Fixed the GRP turret
+[!] GRP ships with required addons will no longer be added to Advanced Duplicator if the addon is not loaded on the server
+[!] Wire simple explosive is now restricted by default
+
+-----Version 2.7-----
+[+] Costs added to toolguns in spawnmenu
+[+] Friendly fire rules now apply to players and their props
+[+] Added cost support for the SBMP Beam Cannon
+[+] Added cost support for the stacker tool
+[+] Weapons are now purchased via the spawnmenu (F4 now brings up the spawnpoint selection menu)
+[+] Significantly reduced required downloadable client content
+[+] Added default menus for players without the Global RP Content package
+[+] Added additional options to the Global RP admin menu (via utilities in the spawnmenu)
+[+] Added default advanced duplicator ships for those with the advanced duplicator addon (2 seater explorer and turret)
+[+] Major code reworking and reorganization
+
+[!] Stopped Gcombat weapons and the SBMP Beam Cannon from destroying worldspawn transformers and flags
+[!] Fixed countless money exploitations
+[!] Minor bug fixes
+
+
+[!] This version does not support SB3. SB3 support will be added upon its offical release.
+
+-----Version 2.6-----
+[+] Added a cost to common stools (see data/GlobalRP/stools.txt for customization)
+[+] When selling things players now get half the money back
+[+] Player's money is now set to 0 during war mode (but reset during free mode, you will not lose your money)
+[+] Made global chat the default chat (local chat can be accessed with /)
+[+] Added chat command !help which lists available chat commands
+[+] Global RP now logs Global RP events in ulx logs (if ulx is installed)
+[+] Significantly reduced required downloadable content for clients without the Global RP content addon
+[+] Improved ease of installation
+[+] Optimized code
+[+] Added spawning of NPCS on capturable planets. New admin commands: fac_autorespawnnpcs, fac_spawnnpcs, fac_removenpcs. See fac_help in console for more information.
+[+] Added autocomplete for client-side concommands
+
+[-] Disabled fac_moneyrest by default
+[-] Removed sniper rifle due to excess bugs
+
+[!] Minor bug fixes
+[!] Fixed use for dedicated servers
+[!] Fixed human animations
+[!] Fixed alien animations
+[!] Fixed Advanced Duplicator (as well as potential bugs with other stools and weapons)
+[!] Fixed chat commands
+[!] Fixed admin spawnmenu utility
+[!] Fixed trading sometimes not working (or only working one way)
+[!] Fixed rocks sometimes not respawning when they should
+
+
+[!] This version does not support SB3. SB3 support will be added upon its offical release.
+
+----Version 2.5c-3---
+[+] Added fac_fragileprops 0/1 for players with large mining machines that don't want them smashed by large rocks
+[+] Added fac_moneyreset 0/1 - Resets a player's money and rocks to zero if they rejoin after a specified period (90 min default)
+
+[-] Removed requirement for Simple RP Prop Protection. It worked better / properly / as intended without Shared rocks
+
+[!] Temporary fix for human player model non-animation issue
+[!] Added pricing for all Malawar sweps in the bundle pointed to in the readme file
+[!] Various fixes
+
+----Version 2.5c-2---
+[!] Bug Fixes, SB2 and SB3 support, replace send_lua with umsg commands
+
+-----Version 2.5c----
+[!] Bug Fixes
+
+-----Version 2.5b----
+[!] Lots of bug fixes
+
+-----Version 2.5-----
+[+] Added fac_flag to entities (see mapping tutorial for additional information)
+[+] Added a player respawn timer
+[+] Added the ability to choose your spawnpoint
+[+] Added a Planet count to the top bar
+[+] Added the ability to add custom songs to the grp jukebox (see data/GlobalRP/musicdata.txt)
+[+] Added console command fac_playsong (complete with autocomplete)
+[+] Updated the console command fac_help
+[+] Made all props breakable
+
+[!] Fixed fac_nexttrack
+
+-----Version 2.0-----
+[+] Added server modes
+[+] Added War mode to server modes (press f1 ingame for help)
+[+] Added capturing of planets
+
+-----Version 1.5-----
+[+] Added a removal timer to small rocks
+[+] Added a maximum amount of small rocks allowed (rocks removed if limit exceeded)
+
+[!] Fixed an issue with the help menu caused by the new garrysmod update
+[!] Fixed rock respawning
+[!] Stopped the alyxgun from screwing up suitcase pickups (giving unlimited money and spamming alyxguns)
+
+-----Version 1.4-----
+[!] Attempted to fix a bug where people get much more money than they should when picking up suitcases
+[!] Fixed to work with the new garrysmod update
+
+-----Version 1.3------
+[+] Added version number to gamemode name in servers list
+[+] Added the in-chat admin commands !forcehuman and !forcealien
+[+] Added local and OOC chat, put / in front of your chat to talk OOC
+[+] Added radio chat, put // infront of your chat to talk in radio, and use !radiofreq to set your radio frequency
+[+] By default, Capped drop amounts (on death) at $500 and 20c and g
+[+] Added cost to gcombat systems
+[+] Added cost to hoverdrives
+
+[!] Fixed Gold and Chalcocite not turning into money when they should on picking up suitcases
+[!] Made rocks respawn quicker by default
+[!] Fixed team chat
+[!] Fixed some lifesupport systems not showing
+
+-----Version 1.2------
+[+] Guns and ammo now save when changing teams
+
+[!] Greatly increased server stability
+[!] Fixed scoreboard expanding bugs
+[!] Greatly reduced lag and stress on the server
+[!] Improved rock regeneration
+[!] Attempt to fix a weird client-side error involving missing Touch functions
+[!] Fixed a bug where when being forced to a team (because of autoteambalance) your ammo doesn't go with you
+[!] Fixed a crashing error when disconnecting from or restarting a server
+
+-----Version 1.1------
+[+] resources and guns now save
+[+] admins can now toolgun and move rocks
+[+] added cost to malawar's launchers and cannons
+[+] suitcases now display who owns them
+[+] purchased transformers are now moveable and toolgunable
+[+] option to edit the amount of money given to players from mining and trading added to config file
+[+] you can move your own suitcases
+[+] dropping money (say !drop in chat to drop money. Use !drop 100c to drop 100 chalcocite, g for gold, and $ for money)
+[+] added (TEAM) to teamchat
+
+[!] fixed rock respawning
+[!] an attempt at fixing an extremely strange bug where when rocks pile up they all get frozen
+
+-----Version 1.0------
+Release

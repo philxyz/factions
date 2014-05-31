@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Simple RP Prop Protection"
+	"version"			""
+	"up_date"			""
+	"author_name"		"Spacetech with RP-specific changes by philxyz and FPtje"
+	"author_email"		"Spacetech326@gmail.com"
+	"author_url"		""
+	"info"				""
+	"override"			"0"
+}

@@ -1,0 +1,38 @@
+-----------------------
+//  Team Ring-Ding   //
+-----------------------
+-Rich, alias Ring-Ding
+
+
+-----------------------
+//   Special Thanks  //
+-----------------------
+-philxyz                         - Spacebuild 2 and 3 port version 2.5c-3 and version 2.5c-2 as well
+				as minor code modifications and additions (complete list in changelog)
+				- GMOD 13 port of Spacebuild Factions with Spacebuild 2
+
+-Dark_Moo                             - Testing
+-Lucky To Shoot                       - Testing
+-Masada								  - Testing, Supplying dedicated server
+-Loophole							  - Testing
+-Honkifyouloveafghanistan			  - Testing, Movie/Trailer
+-Frag								  - Testing
+
+-Chris, alias Krypt-Tonix, Utstephens - Graphics
+
+-SB Dev Team                          - Spacebuild 2, http://forums.facepunchstudios.com/showthread.php?t=425094
+
+-Kathar                               - Flag models, http://www.kathar.net/downloads/flags.php
+
+-----------------------
+//       Extras      //
+-----------------------
+
+-middages font              - Ray Larabie, http://www.larabiefonts.com/
+
+-lifesupport               - Shanjaq, http://forums.facepunchstudios.com/showthread.php?t=284353
+-resource distribution     - Shanjaq, http://forums.facepunchstudios.com/showthread.php?t=311224
+-Spacebuild2		   - Shanjaq
+-gravity		   - echo
+-Simple Prop Protection	   - Spacetech
+-GCOMBAT 08		   - Q42

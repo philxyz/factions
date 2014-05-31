@@ -1,0 +1,115 @@
+--------------------------------------------
+   Spacebuild Factions Mapping Tutorial
+--------------------------------------------
+
+1. Introduction
+
+2. How Rocks Work
+
+3. Transformers
+
+4. Spawnpoints
+
+5. Flags
+
+6. List of Entities
+
+7. Tips
+
+---------------
+1. Introduction
+---------------
+Welcome to the Spacebuild Factions mapping tutorial.
+
+I'm going to assume that you already have the sources of a Spacebuild 2 map, or that you know how to make one from scratch. If not, please see the Spacebuild Mapping tutorial in the same folder as this file.
+
+Firstly, lets look at why Spacebuild Factions will not work on an ordinary Spacebuild 2 or 3 map.
+
+- The first reason is spawnpoints. Spacebuild does not have any human or alien spawnpoints so all the players will spawn on the Earth-like planet, regardless of their team.
+
+- Secondly, Spacebuild maps do not contain rock-placement entities. When you fire up the map, there will not be any rocks there to mine. No rocks means no money; no money means no building; no building means no fun.
+
+- Lastly, the planet terrian and size will be unbalanced for competitive play. It will be fine on the Earth-like planet, there is probably plenty of space - but on the alien planet, the terrian will most likely be bumpy and difficult to build on. Not only that, the size of the planet will not be comperable to the Earth-like planet, causing the game to be unfair.
+
+-----------------
+2. How Rocks Work
+-----------------
+When you position a rock in Hammer, you will place it according to size.
+
+The rock entities which can be placed are named:
+	- stone_huge
+	- stone_large
+	- stone_medium
+	- stone_small
+	
+In addition to these sizes, there are 3 different colors of rock:
+
+- Chalcoite (the black rock that humans should normally start with on their planet)
+- Gold (the yellow rock that aliens should normally start with on their planet)
+- Finally, the mysterious red rock, which serves as a bonus rock, worth extra money (good for placing on neutral planets)
+
+The type of the rock is determined by its distance from the following entities (which do not otherwise appear in-game):
+	- rock_human
+	- rock_alien
+	
+When the rock spawns, Spacebuild Factions will search within a radius of 500 units around each of the rock_human and rock_alien entities you have placed in the map. The rocks that are found near to the rock_human entities will become Chalcocite while rocks near the rock_alien entities will become Gold. Rocks that are not within a 500 radius of any rock_human or rock_alien entity will become the bonus red rocks.
+
+Here is a picture so that you can visualize the scale of these rocks:
+
+http://img68.imageshack.us/img68/9788/gmspacevoyagev20001nt0.jpg
+
+If the above link is no longer working, see the image provided (of the same file name) in the same folder as this tutorial file.
+
+---------------
+3. Transformers
+---------------
+To place a transformer entity, simply place an entity with the classname "transformer" in the map. There should be at least one or maybe two for each of the human and alien home planets, respectively. You have to get the rotation and the spawn height right, otherwise it will look badly-positioned. The transformer will NOT fall to the ground when the game is started (it will be frozen in mid-air).
+
+--------------
+4. Spawnpoints
+--------------
+Spawnpoints are exactly that - points that designate a players' spawn location. Spacebuild Factions-specific spawnpoints are:
+	- info_spawn_alien
+	- info_spawn_human
+
+Place as many of these as you want, wherever you want and the gamemode will do the rest.
+Sound effects when players spawn should be done using Hammer, (if wanted).
+
+--------
+5. Flags
+--------
+By default, each planet has a flag will be spawned above your spacebuild planet case when the game is started or switched into War mode. The flag will spawn 1000 units above the planet case, then fall down to the ground and be frozen. Any entity that the flag hits on its way down will be removed.
+
+However, if this is a problem (there might be a lake in the middle of that planet!) then you can designate specifically where on the planet you want the capturing flag to spawn. The entity grp_flag acts as a spawnpoint for the flag. The flag will then spawn at that point, and then be frozen. If multiple grp_flag entities are found on a planet, the flag will spawn at a random one.
+
+-------------------
+6. List of Entities
+-------------------
+To place a Spacebuild Factions entity in hammer, create an entity with one of the classnames listed below. The picture of the entity will be irrelevant - this is normal. The entities will be recognized when Spacebuild Factions is loaded.
+
+info_spawn_alien	- Alien spawnpoint
+info_spawn_human	- Human spawnpoint
+
+transformer 		- Used to convert rocks to money. Should only be placed on player's starting planets (players can purchase these ingame).
+
+grp_flag		- Flag position (specified when you don't want the flag to be directly in the middle of the planet's surface)
+
+stone_huge		- Massive rock which breaks into 2 or 3 "stone_large" entities. These should be very rare and preferably not on the home-planets of either the Human or Alien team.
+stone_large		- Master rock. You get 3 or 4 of these when you break up a stone_huge entity. A good amount of these entities to place is 4 per home-planet, to give the teams something to start on.
+stone_medium		- The result of breaking up a stone_large entity. These are pieces which can be broken to produce "stone_small" entities.
+stone_small		- Small rock pieces to carry to the transformers, to convert into cash money.
+
+rock_human		- An entity which defines that stone entities within 500 units of its position are of type "Chalcolite" (human-native rocks). One of these entities should be placed at the center point of the Humans' home-planet.
+rock_alien		- An entity which defines that stone entities within 500 units of its position are of type "Gold" (alien-native rocks). One of these entities should be placed at the center point of the Aliens' home-planet.
+
+-------
+7. Tips
+-------
+
+- Even though Spacebuild Factions uses its own custom spawnpoints, be sure to put regular spawnpoints in there too! Otherwise, when players try to play the map without the Spacebuild Factions gamemode loaded, their game will crash (and we don't want that). Regular spawnpoints will not conflict or cause any issues with Spacebuild Factions, so it doesn't hurt to have a few there in case.
+
+- Try to make both bases as equal as possible, and give some flat building room.
+
+- Don't forget about the day/night cycles. If one team's planet has a day/night cycle, make sure the other one has one too!
+
+- Try not to use large bodies of water. It ends up being a pain in the butt because rocks tend to fall into the water and get lost.

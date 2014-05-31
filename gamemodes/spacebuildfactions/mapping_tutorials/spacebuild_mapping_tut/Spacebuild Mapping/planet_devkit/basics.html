@@ -1,0 +1,80 @@
+<b>Planet Making Basics</b><br />
+<br />
+<br />
+<i>Landscape</i><br />
+1: Open one of the planet####x3.vmf files from the devkit.  There are a couple of sizes to choose from, ranging from 2048 units across to 6144, though you may scale them if you are careful to keep the dimensions as multiples of 2<br />
+2: Select the terrain object, copy(ctrl+C) and then paste(ctrl+V) into your own map.<br />
+2-<b>alternate:</b> Save the template map as a name of your choosing, then work on the planet by itself, pasting the finished product into your space map when you are satisfied with the details.<br />
+3: You can select the top faces and adjust the displacement power, by default I set them to x3.<br />
+4: Choose your ground cover texture and paint terrain geometry<br />
+5: <b>cleanup:</b> set all displacement verticies at the very edge of your landscape to 0, this way it will fit into the atmosphere without poking out in places.<br />
+<br />
+<i>Atmosphere</i><br />
+1:  make a sphere of the exact same diameter as your terrain, using the exact same number of sides as your terrain and centered at the equator.<br />
+2: tie it to a func_illusionary<br />
+3: disable shadows AND receiving shadows.<br />
+4: create a cylinder matching the landscape diameter and 128 units high, same number of sides, painted with the nodraw texture<br />
+5: move it outside your planet and copy it<br />
+6: use &quot;paste special&quot; with zero offset<br />
+7: reduce the horizontal diameter of the new cylinder by 32 units on each side<br />
+8: hit &quot;Carve&quot;  and delete the smaller cylinder.<br />
+9: move the newly created ring back onto your planet so that you now have an invisible wall standing 128 units tall protecting players from jumping off the edge.<br />
+<br />
+<br />
+<i>Environment</i><br />
+You'll need to place a &quot;logic_case&quot; entity at the exact center of your sphere, then give it the following case values:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre style="border: 1px dashed #888; background-color: #efefef; font-family: courier; padding: 10px;"><div dir="ltr" style="text-align:left;">Case01 = planet
+Case02 = (the radius of your planet)
+Case03 = (the gravity of your planet)
+Case04 = (environmental flags)
+
+These are the environmental flags:
+1 = Habitat  --breathable air within this radius
+2 = Unstable  --frequent tremors
+4 = Sun Burn  --sun will burn you if not sheltered
+8 = Crushing  --atmosphere will crush you if not stabilized by exchanger</div></pre>
+</div>
+<br />
+<br />
+So for instance you have a planet with a 1024 radius(2048 units across total), with half normal gravity, breathable atmosphere and a burning sun, your &quot;logic_case&quot; would look like this:<br />
+<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre style="border: 1px dashed #888; background-color: #efefef; font-family: courier; padding: 10px;"><div dir="ltr" style="text-align:left;">Case01 planet
+Case02 1024
+Case03 0.5
+Case04 5</div></pre>
+</div>
+<br />
+<br />
+<br />
+<br />
+the Unstable flag requires a little extra setup, you need to create a system of env_shake and ambient_generic entities that are controlled by your logic_case, then make a case somewhere containing the word &quot;shake&quot;, that case will be the trigger for your planetary tremors.<br />
+<br />
+<br />
+To make day/night cycles I just applied some trickery in Hammer(no lua required!)<br />
+<br />
+1: Create a &quot;spike&quot; primitive with the exact same number of sides as your sphere and landscape using the nodraw texture, make it above your landscape with base matching your sphere equator and top just barely protruding from the sphere by 32 units<br />
+2: copy it then &quot;paste special&quot; with no offset<br />
+3: shrink the copy along the horizontal axes by 32 units<br />
+4: bring the top vertex of the spike down by 32 units(leave the bottom alone)<br />
+5: hit Carve then delete the smaller spike(move your landscape and sphere out of the way first!)<br />
+6: <b>whatever you do, DO NOT MOVE the carved spike, Hammer will give rounding errors and it will degenerate!</b><br />
+7: tie it to a func_illusionary and paint the inside walls with that fake sky white texture.<br />
+8: edit the properties so that its render mode is &quot;Additive&quot;<br />
+9: set its &quot;FX Amount&quot; to any number below 255(for Earth I used 254, mars has 240.)<br />
+10: set its &quot;FX Color&quot; to any hue you desire.<br />
+11: create a logic_timer called &quot;whatever_night&quot; and give it at least 12 OnTrigger outputs in sequence separated by around 0.25 seconds.  For each progressive output, decrease the &quot;alpha&quot; value of the sky until it reaches near zero(night sky visible)<br />
+12: create another logic_timer called &quot;whatever_day&quot; and give it 12 outputs with the reverse effect of night.  Have this one Start Disabled.<br />
+13: Add an output to &quot;whatever_night&quot; that OnTrigger Enables &quot;whatever_day&quot; and disables &quot;whatever_night&quot;<br />
+14: Do the same in reverse for &quot;whatever_day&quot;<br />
+<br />
+<br />
+This is the tool I used to make the skybox:<br />
+<a href="http://www.garagegames.com/index.php?sec=mg&amp;mod=resource&amp;page=view&amp;qid=3707" target="_blank">http://www.garagegames.com/index.php...=view&amp;qid=3707</a><br />
+<br />
+Hope this helps!

@@ -1,0 +1,13 @@
+****** Instructions for Spacebuild Factions Content with Spacetech's Simple Prop Protection ******
+
+Everything goes into your garrysmod folder.
+
+- "Simple Prop Protection" was created by Spacetech and is available on http://garrysmod.org/
+
+- I have Spacetech's written permission to distribute this extended version as a bundled component for the purpose of RP compatibility.
+
+- Kathar has given permission to include his flags in other content packs. For that reason, they are incuded here.
+
+- Special thanks of course to RingDing for creating Spacebuild Factions
+
+-- philxyz, May 2014
