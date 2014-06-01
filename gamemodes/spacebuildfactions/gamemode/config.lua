@@ -186,21 +186,21 @@ Factions.Config.Weapons.Equipment.Grenade = {
 
 Factions.Config.Weapons.Pistols.Deagle = {
 	Name = "Deagle",
-	ClassName = "weapon_deagle",
+	ClassName = "weapon_real_cs_desert_eagle",
 	Cost = 250,
 	AmmoCost = 40
 }
 
 Factions.Config.Weapons.Pistols.FiveSeven = {
 	Name = "Five Seven",
-	ClassName = "weapon_fiveseven",
+	ClassName = "weapon_real_cs_five-seven",
 	Cost = 200,
 	AmmoCost = 40
 }
 
 Factions.Config.Weapons.Pistols.Glock = {
 	Name = "Glock 18",
-	ClassName = "weapon_glock",
+	ClassName = "weapon_real_cs_glock18",
 	Cost = 150,
 	AmmoCost = 40
 }
@@ -213,21 +213,21 @@ Factions.Config.Weapons.Pistols.Ammo = {
 
 Factions.Config.Weapons.SMGs.Mac10 = {
 	Name = "Mac 10",
-	ClassName = "weapon_mac10",
+	ClassName = "weapon_real_cs_mac10",
 	Cost = 300,
 	AmmoCost = 50
 }
 
 Factions.Config.Weapons.SMGs.TMP = {
 	Name = "TMP",
-	ClassName = "weapon_tmp",
+	ClassName = "weapon_real_cs_tmp",
 	Cost = 300,
 	AmmoCost = 50
 }
 
 Factions.Config.Weapons.SMGs.MP5 = {
 	Name = "MP5",
-	ClassName = "weapon_mp5",
+	ClassName = "weapon_real_cs_mp5a5",
 	Cost = 400
 }
 
@@ -239,7 +239,7 @@ Factions.Config.Weapons.SMGs.Ammo = {
 
 Factions.Config.Weapons.Shotguns.Pump = {
 	Name = "Pump-Action Shotgun",
-	ClassName = "weapon_pumpshotgun",
+	ClassName = "weapon_real_cs_pumpshotgun",
 	Cost = 300,
 	AmmoCost = 25
 }
@@ -253,7 +253,7 @@ Factions.Config.Weapons.Shotguns.Ammo = {
 
 Factions.Config.Weapons.Rifles.AK47 = {
 	Name = "AK47",
-	ClassName = "weapon_ak47",
+	ClassName = "weapon_real_cs_ak47",
 	Cost = 450,
 	AmmoCost = 100,
 	AmmoType = "AR2"
@@ -261,7 +261,7 @@ Factions.Config.Weapons.Rifles.AK47 = {
 
 Factions.Config.Weapons.Rifles.M4A1 = {
 	Name = "M4A1",
-	ClassName = "weapon_m4",
+	ClassName = "weapon_real_cs_m4a1",
 	Cost = 450,
 	AmmoCost = 100,
 	AmmoType = "AR2"
@@ -275,7 +275,7 @@ Factions.Config.Weapons.Rifles.Ammo = {
 
 Factions.Config.Weapons.MachineGuns.M249Para = {
 	Name = "M249 Para",
-	ClassName = "weapon_para",
+	ClassName = "weapon_real_cs_m249",
 	Cost = 600,
 	AmmoCost = 150,
 	AmmoType = "AlyxGun"

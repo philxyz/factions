@@ -60,50 +60,50 @@ function PANEL:Init()
 	
 	self.Pistols = {}
 		self.Pistols.Deagle = vgui.Create( "PurchaseButton", self )
-		self.Pistols.Deagle:SetGun("weapon_deagle")
+		self.Pistols.Deagle:SetGun("weapon_real_cs_desert_eagle")
 		table.insert( gunstable, self.Pistols.Deagle)
 
 		self.Pistols.FiveSeven = vgui.Create( "PurchaseButton", self )
-		self.Pistols.FiveSeven:SetGun("weapon_fiveseven")
+		self.Pistols.FiveSeven:SetGun("weapon_real_cs_five-seven")
 		table.insert( gunstable, self.Pistols.FiveSeven)
 
 		self.Pistols.Glock = vgui.Create( "PurchaseButton", self )
-		self.Pistols.Glock:SetGun("weapon_glock")
+		self.Pistols.Glock:SetGun("weapon_real_cs_glock18")
 		table.insert( gunstable, self.Pistols.Glock)
 	
 	
 	self.SMGS = {}
 		self.SMGS.Mac10 = vgui.Create( "PurchaseButton", self )
-		self.SMGS.Mac10:SetGun("weapon_mac10")
+		self.SMGS.Mac10:SetGun("weapon_real_cs_mac10")
 		table.insert( gunstable, self.SMGS.Mac10)
 
 		self.SMGS.MP5 = vgui.Create( "PurchaseButton", self )
-		self.SMGS.MP5:SetGun("weapon_mp5")
+		self.SMGS.MP5:SetGun("weapon_real_cs_mp5a5")
 		table.insert( gunstable, self.SMGS.MP5)
 		
 		self.SMGS.TMP = vgui.Create( "PurchaseButton", self )
-		self.SMGS.TMP:SetGun("weapon_tmp")
+		self.SMGS.TMP:SetGun("weapon_real_cs_tmp")
 		table.insert( gunstable, self.SMGS.TMP )
 	
 	
 	self.Shotguns = {}
 		self.Shotguns.Pump = vgui.Create( "PurchaseButton", self )
-		self.Shotguns.Pump:SetGun("weapon_pumpshotgun")
+		self.Shotguns.Pump:SetGun("weapon_real_cs_pumpshotgun")
 		table.insert( gunstable, self.Shotguns.Pump )
 	
 	
 	self.Rifles = {}
 		self.Rifles.AK47 = vgui.Create( "PurchaseButton", self )
-		self.Rifles.AK47:SetGun("weapon_ak47")
+		self.Rifles.AK47:SetGun("weapon_real_cs_ak47")
 		table.insert( gunstable, self.Rifles.AK47 )
 
 		self.Rifles.M4 = vgui.Create( "PurchaseButton", self )
-		self.Rifles.M4:SetGun("weapon_m4")
+		self.Rifles.M4:SetGun("weapon_real_cs_m4a1")
 		table.insert( gunstable, self.Rifles.M4 )
 	
 	self.MachineGuns = {}
 		self.MachineGuns.MachineGun = vgui.Create( "PurchaseButton", self )
-		self.MachineGuns.MachineGun:SetGun("weapon_para")
+		self.MachineGuns.MachineGun:SetGun("weapon_real_cs_m249")
 		table.insert( gunstable, self.MachineGuns.MachineGun )
 	
 	

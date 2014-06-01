@@ -259,8 +259,10 @@ local function Buy( ply, cmd, args )
 				end
 			end
 		end
+
 		if not cost then
 			fac_Debug("Unable to find a cost for " .. tostring(args[1]))
+			return
 		end
 		
 		if ply:Money() < cost then
