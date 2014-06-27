@@ -103,8 +103,6 @@ function ENT:GetOverlayText()
 		txt = txt .. "\n- " .. PlayerName .. " -"
 	end
 
-	print("GetOverlayText called: " .. txt)
-	
 	return txt
 end
 
