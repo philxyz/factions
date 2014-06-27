@@ -80,54 +80,66 @@ Msg("--------------------\n")
 -- Mount Resources
 ------------------------------------------
 
-local vortcolors = { "red" }--, "green", "blue" }
-local flagmdlend = { ".dx80.vtx", ".dx90.vtx", ".mdl", ".phy", ".sw.vtx", ".vvd" }
-local materials  = { ".vtf", ".vmt" }
+Msg( "Sending models to client\n" )
 
-for k,v in pairs( vortcolors ) do
-	resource.AddFile("models/alien_" ..v.. ".dx80.vtx")
-	resource.AddFile("models/alien_" ..v.. ".dx90.vtx")
-	resource.AddFile("models/alien_" ..v.. ".mdl")
-	resource.AddFile("models/alien_" ..v.. ".phy")
-	resource.AddFile("models/alien_" ..v.. ".sw.vtx")
-	resource.AddFile("models/alien_" ..v.. ".vvd")
-	resource.AddFile("models/alien_" ..v.. ".xbox.vtx")
-end
+resource.AddFile("models/katharsmodels/flags/flag08.mdl")
+resource.AddFile("models/katharsmodels/flags/flag27.mdl")
+resource.AddFile("models/katharsmodels/flags/flag36.mdl")
 
-for k,v in pairs( flagmdlend ) do
-	resource.AddFile( "models/katharsmodels/flags/flag08" .. v )
-	resource.AddFile( "models/katharsmodels/flags/flag27" .. v )
-	resource.AddFile( "models/katharsmodels/flags/flag36" .. v )
-end
+resource.AddFile("models/bluevort.mdl")
+resource.AddFile("models/greenvort.mdl")
+resource.AddFile("models/redvort.mdl")
 
-Msg( "\n" )
+resource.AddFile("models/alien_red.mdl")
+resource.AddFile("models/alien_green.mdl")
+resource.AddFile("models/alien_blue.mdl")
 
-for k,v in pairs( materials ) do
-	resource.AddFile( "materials/katharsmodels/flags/flag08" .. v )
-	resource.AddFile( "materials/katharsmodels/flags/flag27" .. v )
-	resource.AddFile( "materials/katharsmodels/flags/flag36" .. v )
-	--[[
-	resource.AddFile( "materials/gui/menu/main_off" .. v )
-	resource.AddFile( "materials/gui/menu/main_alien" .. v )
-	resource.AddFile( "materials/gui/menu/main_human" .. v )
-	
-	resource.AddFile( "materials/gui/helpmenu/help_bg" .. v )
-	
-	resource.AddFile( "materials/gui/scoreboard/alienheader2" .. v )
-	resource.AddFile( "materials/gui/scoreboard/bg" .. v )
-	resource.AddFile( "materials/gui/scoreboard/humanheader2" .. v )
-	resource.AddFile( "materials/gui/scoreboard/logo" .. v )
-	
-	resource.AddFile( "materials/gui/swepmenu/base" .. v )
-	resource.AddFile( "materials/gui/swepmenu/button" .. v )
-	resource.AddFile( "materials/gui/swepmenu/button2" .. v )
-	--]]
-end
-resource.AddFile("materials/rocks/rockwall015a.vmt")
+Msg( "Sending materials to client\n" )
 
-Msg( "\n" )
+resource.AddFile( "materials/gui/helpmenu/help_bg.vmt" )
+
+resource.AddFile( "materials/gui/menu/main_alien.vmt" )
+resource.AddFile( "materials/gui/menu/main_human.vmt" )
+resource.AddFile( "materials/gui/menu/main_off.vmt" )
+
+resource.AddFile( "materials/gui/scoreboard/alienheader.vmt" )
+resource.AddFile( "materials/gui/scoreboard/bg.vmt" )
+resource.AddFile( "materials/gui/scoreboard/humanheader.vmt" )
+resource.AddFile( "materials/gui/scoreboard/logo.vmt" )
+
+resource.AddFile( "materials/gui/swepmenu/base.vmt" )
+resource.AddFile( "materials/gui/swepmenu/button.vmt" )
+resource.AddFile( "materials/gui/swepmenu/button2.vmt" )
+
+resource.AddFile( "materials/katharsmodels/flags/flag08.vmt" )
+resource.AddFile( "materials/katharsmodels/flags/flag27.vmt" )
+resource.AddFile( "materials/katharsmodels/flags/flag36.vmt" )
+
+resource.AddFile( "materials/models/vortigaunt/bluevort_sheet.vmt" )
+resource.AddFile( "materials/models/vortigaunt/eyeball_blue.vmt" )
+resource.AddFile( "materials/models/vortigaunt/eyeball_green.vmt" )
+resource.AddFile( "materials/models/vortigaunt/greenvort_sheet.vmt" )
+resource.AddFile( "materials/models/vortigaunt/pupil_blue.vmt" )
+resource.AddFile( "materials/models/vortigaunt/pupil_green.vmt" )
+
+resource.AddFile( "materials/rocks/rockwall015a.vmt" )
+
+resource.AddFile( "materials/credits.vmt" )
+resource.AddFile( "materials/marssand.vmt" )
+resource.AddFile( "materials/marssandblend.vmt" )
+resource.AddFile( "materials/martionsilt.vmt" )
+
+Msg( "Sending resources to client\n" )
 
 resource.AddFile("resource/fonts/middages.ttf")
+
+Msg( "Sending music to client\n" )
+
+resource.AddFile("sound/music/GlobalRP1.mp3")
+resource.AddFile("sound/music/GlobalRP2.mp3")
+resource.AddFile("sound/music/GlobalRP3.mp3")
+resource.AddFile("sound/music/GlobalRP4.mp3")
+resource.AddFile("sound/music/GlobalRP5.mp3")
 
 Msg( "\n" )
 
