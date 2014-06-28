@@ -3,8 +3,6 @@
 -- Team Ring-Ding
 ------------------------------------------
 
-if Factions.Addons.Content then --does the client have the FAC content package?
-
 	local MENU = {}
 
 	function MENU:Init()
@@ -85,67 +83,3 @@ if Factions.Addons.Content then --does the client have the FAC content package?
 	Factions.TeamMenu = vgui.Create( "FAC Menu" )
 
 	Factions.TeamMenu:SetVisible( true )
-	
-else --use shitty derma
-	 function Factions.CreateTeamMenu()
-		local menu = vgui.Create("DFrame")
-		local x, y = menu:GetSize()
-		menu:SetSize(120, 72)
-		menu:SetPos( ScrW() / 2 - x / 2, ScrH() / 2 - y / 2 )
-		menu:SetTitle("Choose Your Team")
-		menu:SetVisible( true )
-		menu:SetKeyboardInputEnabled( false )
-		menu:SetMouseInputEnabled( true )
-		menu:MakePopup()
-		
-		menu.Close = function (self) RunConsoleCommand("fac_closeteam") end
-		
-		local humans = vgui.Create("DButton")
-		humans:SetParent(menu)
-		humans:SetText("Humans")
-		humans:SetPos(6,26)
-		humans:SetSize(100,20)
-		humans:SetKeyboardInputEnabled( false )
-		humans:SetMouseInputEnabled( true )
-		humans.DoClick = function () RunConsoleCommand("fac_Human") end
-		
-		local aliens = vgui.Create("DButton")
-		aliens:SetParent(menu)
-		aliens:SetText("Aliens")
-		aliens:SetPos(6, 48)
-		aliens:SetSize(100, 20)
-		aliens:SetKeyboardInputEnabled( false )
-		aliens:SetMouseInputEnabled( true )
-		aliens.DoClick = function () RunConsoleCommand("fac_Alien") end
-		
-		return menu
-	end
-	
-	local function ShowMenu()
-		if not Factions.TeamMenu or not Factions.TeamMenu:IsValid() then
-			if Factions.TeamMenu then Factions.TeamMenu:Remove() end
-			
-			Factions.TeamMenu = Factions.CreateTeamMenu()
-		end
-	
-		Factions.TeamMenu:SetVisible(true)
-	end
-	usermessage.Hook("fac_showteammenu", ShowMenu)
-
-	local function HideMenu()
-		if not Factions.TeamMenu or not Factions.TeamMenu:IsValid() then
-			if Factions.TeamMenu then Factions.TeamMenu:Remove() end
-			
-			Factions.TeamMenu = Factions.CreateTeamMenu()
-		end
-	
-		Factions.TeamMenu:SetVisible(false)
-		gui.EnableScreenClicker(false)
-		if LocalPlayer():GetNWBool( "showhelp" ) or LocalPlayer():GetNWBool( "showswep" ) or LocalPlayer():GetNWBool( "showtrader" ) then
-			gui.EnableScreenClicker(true)
-		end
-	end
-	usermessage.Hook("fac_hideteammenu", HideMenu)
-	
-	Factions.TeamMenu = Factions.CreateTeamMenu()
-end

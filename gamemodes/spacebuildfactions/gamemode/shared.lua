@@ -29,7 +29,6 @@ Factions.Version = string.gsub( GM.Name, "Factions ", "" )
 
 --this table is not necessarily accurate client-side and may not work for later version of these addons
 Factions.Addons = {}
-Factions.Addons.Content = GRP_CONTENT
 Factions.Addons.Lifesupport = (LIFESUPPORT ~= nil)
 Factions.Addons.Gcombat = (COMBATDAMAGEENGINE and type(gcombat) == "table")
 Factions.Addons.WeightStool = file.Exists("../lua/weapons/gmod_tool/stools/weight.lua", "LUA")

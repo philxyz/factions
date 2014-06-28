@@ -94,21 +94,7 @@ function PANEL:Init()
 		
 	self.Mode = vgui.Create( "Label", self )
 	self.Mode:SetText( "Free" ) --predict that it's going to be free mode
-	
-	if not Factions.Addons.Content then --player doesnt have content pack
-		self.HumanHeader:SetText( "Humans" )
-		self.AlienHeader:SetText( "Aliens" )
-		
-		self.Header = vgui.Create( "Label", self )
-		self.Header:SetText( "Humans Vs Aliens" )
-		
-		self.Header2 = vgui.Create( "Label", self )
-		self.Header2:SetText( "-Spacebuild Roleplay-" )
-		
-		self.GetContentLabel = vgui.Create( "Label", self )
-		self.GetContentLabel:SetText( "Ask about the Factions content package for prettier GUI!" )
-	end
-		
+
 	self.PlayerRows = {}
 
 	self:UpdateScoreboard()
@@ -153,30 +139,26 @@ end
 ---------------------------------------------------------]]
 function PANEL:Paint(x, y)
 
-	if Factions.Addons.Content then
-		surface.SetTexture( texBG )
-		surface.SetDrawColor( 255, 255, 255, 255 )
-		surface.DrawTexturedRect( 0, 0, self:GetWide(), self:GetTall(), 250, 600 )
+	surface.SetTexture( texBG )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 0, 0, self:GetWide(), self:GetTall(), 250, 600 )
 
-		-- Humans Team Header
+	-- Humans Team Header
 		
-		surface.SetTexture( humanheader )
-		surface.SetDrawColor( 255, 255, 255, 255 )
-		surface.DrawTexturedRect( 4, self.HumanHeader.y - 38, self:GetWide() - 8, 64 )
+	surface.SetTexture( humanheader )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 4, self.HumanHeader.y - 38, self:GetWide() - 8, 64 )
 		
-		-- Aliens Team Header
+	-- Aliens Team Header
 		
-		surface.SetTexture( alienheader )
-		surface.SetDrawColor( 255, 255, 255, 255 )
-		surface.DrawTexturedRect( 4, self.AlienHeader.y - 38, self:GetWide() - 8, 64 )
+	surface.SetTexture( alienheader )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 4, self.AlienHeader.y - 38, self:GetWide() - 8, 64 )
 
-		-- Logo
-		surface.SetTexture( texLogo )
-		surface.SetDrawColor( 255, 255, 255, 255 )
-		surface.DrawTexturedRect( 0, 0, 512, 128 )
-	else
-		draw.RoundedBox( 10, 0, 0, self:GetWide(), self:GetTall(), Color( 100, 139, 221, 175 ) )
-	end
+	-- Logo
+	surface.SetTexture( texLogo )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 0, 0, 512, 128 )
 	
 	-- Black Inner Box
 	draw.RoundedBox( 4, 20, self.HumanHeader.y, self:GetWide() - 40, self.PlayerFrameAlien:GetCanvas():GetTall() + self.PlayerFrameHuman:GetCanvas():GetTall() + self.AlienHeader:GetTall() + self.HumanHeader:GetTall() , Color( 20, 20, 20, 150 ) )
@@ -290,18 +272,6 @@ function PANEL:PerformLayout()
 		self.AlienLbl.Kills:SetPos( 341, self.AlienHeader.y + 4 )
 		self.AlienLbl.Deaths:SetPos( 396, self.AlienHeader.y + 4 )
 		self.AlienLbl.Ping:SetPos( 461, self.AlienHeader.y + 4 )
-
-	if not Factions.Addons.Content then
-		self.Header:SizeToContents()
-		self.Header:SetPos( iWide / 2 - self.Header:GetWide() / 2, 10 )
-		
-		self.Header2:SizeToContents()
-		self.Header2:SetPos( iWide / 2 - self.Header2:GetWide() / 2, self.Header.y + self.Header:GetTall() + 4 )
-		
-		self.GetContentLabel:SizeToContents()
-		self.GetContentLabel:SetPos( iWide / 2 - self.GetContentLabel:GetWide() / 2, iTall - self.GetContentLabel:GetTall() - 4 )
-	end
-		
 end
 
 --[[-------------------------------------------------------
@@ -310,13 +280,6 @@ end
 function PANEL:ApplySchemeSettings()
 	local color_white = color_white
 
-	if not Factions.Addons.Content then
-		self.Header:SetFont( "ScoreboardHeader" )
-		self.Header2:SetFont( "ScoreboardSubtitle" )
-		
-		self.GetContentLabel:SetFont( "ScoreboardLabel" )
-	end
-	
 	self.Hostname:SetFont( "" )
 	self.HumanHeader:SetFont( "ScoreboardSubtitle" )
 	self.AlienHeader:SetFont( "ScoreboardSubtitle" )

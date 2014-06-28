@@ -49,11 +49,6 @@ if type(Factions.Stools) ~= "table" or type(Factions.Stools.turret) ~= "table" o
 	LocalPlayer():ConCommand("fac_requeststools\n") --not the greatest because by the time the client gets the file the spawnmenu will already have loaded, but its better than nothing. Besides, this is a catchall anyway.
 end
 
-if not Factions.Addons.Content then
-	Msg("Factions Content pack not installed, using default menus and sounds.\n")
-	Msg("You can download the Factions Content pack from the facepunch forums, or www.sbfactions.blogspot.com\n")
-end
-
 Msg("-------------------------------\n")
 Msg("Factions Client Loaded\n")
 Msg("-------------------------------\n\n")

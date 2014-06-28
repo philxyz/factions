@@ -88,41 +88,31 @@ end
 ------------------------------------------
 --      Hooks
 ------------------------------------------
-
-local function Jukebox_Initialize()
+usermessage.Hook("musicst", function()
 	if Juke_Initialized then return end
-
-	print("Juke initializing")
 
 	if file.Exists("factions/music.txt", "DATA") then
 		local music1 = file.Read("factions/music.txt", "DATA")
 
-		print("music file exists, setting music option to: " .. tostring(music1))
-
-		if music1 == "true" then Factions.music = true else Factions.music = false end
+		if music1 == "true" then Factions.music = true; print("enabling jukebox...") else Factions.music = false; print("not enabling jukebox...") end
 	end
 
 	if Factions.music == true then
-		if Factions.Addons.Content then --play the badass music
-			song.name = "music/globalrp4.mp3"
-			song.length = 95
-			song.starttime = CurTime()
-			surface.PlaySound( song.name )
+		song.name = "music/globalrp4.mp3"
+		song.length = 95
+		song.starttime = CurTime()
+		surface.PlaySound( song.name )
 			
-			local name = string.gsub( song.name, "music/", "" )
-			name = string.gsub( name, ".mp3", "" )
+		local name = string.gsub( song.name, "music/", "" )
+		name = string.gsub( name, ".mp3", "" )
 			
-			Msg( "[FAC Jukebox] Now Playing: " ..name .. "\n" )
-		else
-			Factions.NextSong()
-		end
+		Msg( "[FAC Jukebox] Now Playing: " ..name .. "\n" )
 		
 		RunConsoleCommand( "fac_music", "1" )
 		schoolme = true
 	end
 	Juke_Initialized = true
-end
-hook.Add("PlayerJoinTeam", "FAC Jukebox Beginning Setup", Jukebox_Initialize)
+end)
 
 local function JukeThink()
 	if song.starttime + song.length + 2 < CurTime() and Factions.music then

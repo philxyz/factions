@@ -52,6 +52,9 @@ function GM:PlayerInitialSpawn( ply )--the player has "spawned" as a spectator, 
 end
 
 function GM:PlayerInitialTeamSpawn( ply ) --the player has picked his team and is ready to go for the first time
+	umsg.Start("musicst", ply)
+	umsg.End()
+
 	local u = ply:UniqueID()
 	if not plyvar[u] then
 		plyvar[u] = {}

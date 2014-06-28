@@ -74,7 +74,19 @@ function GM:SetMode( mode, quiet )
 		ply:SetNWInt( "Planets", 0 )
 		
 		if mode == "War" then
-			Factions.Notify( ply, "Props removed, Money and Rock scores ZEROED (to prevent cheating). The space-race is now on!", "NOTIFY_GENERIC", 8 )
+			for k, v in pairs(SPropProtection["Props"]) do
+				for _, plpl in ipairs(player.GetAll()) do
+					if(v[1] == plpl:SteamID() and v[2]:IsValid()) then
+						v[2]:Remove()
+						SPropProtection["Props"][k] = nil
+					end
+				end
+			end
+			for k, v in ipairs(player.GetAll()) do
+				v:SetFrags(0)
+				v:SetDeaths(0)
+			end
+			Factions.Notify( ply, "Props removed, Money and Rock counts ZEROED (to prevent cheating). The space-race is on!", "NOTIFY_GENERIC", 8 )
 			ply:SetNWInt("money", 0)
 			ply:SetNWInt( ROCK_GOLD, 0 )
 			ply:SetNWInt( ROCK_CHAL, 0 )
@@ -473,7 +485,7 @@ function Factions.SortRocks()
 	for k,v in pairs(alien_points) do
 		table.insert( internal_alien_rocks, ents.FindInSphere( v:GetPos(), 500 ) )
 	end
-	local allrocks = ents.FindInSphere( Vector(0,0,0), 90000 )
+	local allrocks = ents.FindInBox( Vector(-16384, -16384, -16384), Vector(16383, 16383, 16383) )
 	
 	for a,b in pairs(internal_human_rocks) do
 		for k,v in pairs(internal_human_rocks[a]) do

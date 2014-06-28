@@ -68,6 +68,7 @@ function HELPMENU:Init()
 	
 	self.page     = 1
 	
+--[[
 	if not Factions.Addons.Content then --player doesnt have content pack
 		self.Header = vgui.Create( "DLabel", self )
 		self.Header:SetText( "Humans Vs Aliens" )
@@ -75,6 +76,7 @@ function HELPMENU:Init()
 		self.Header2 = vgui.Create( "DLabel", self )
 		self.Header2:SetText( "-Spacebuild Roleplay-" )
 	end
+]]
 end
 
 function HELPMENU:PerformLayout()
@@ -82,6 +84,7 @@ function HELPMENU:PerformLayout()
 		self:SetSize( 512, 256 )
 		gui.EnableScreenClicker( true )
 		
+--[[
 	if not Factions.Addons.Content then
 		self.Header:SetFont( "ScoreboardHeader" )
 		self.Header:SizeToContents()
@@ -91,6 +94,7 @@ function HELPMENU:PerformLayout()
 		self.Header2:SizeToContents()
 		self.Header2:SetPos( self:GetWide() / 2 - self.Header2:GetWide() / 2, self.Header.y + self.Header:GetTall() + 4 )
 	end
+]]
 	
 	self.List:SetPos( 230, 71 )
 		self.List:SetSize( 254, 155 )
@@ -163,13 +167,13 @@ function HELPMENU:ButtonTextClick( text, page )
 end
 
 function HELPMENU:Paint(x, y)
-	if Factions.Addons.Content then
+	--if Factions.Addons.Content then
 		surface.SetTexture( bg )
 		surface.SetDrawColor( 255, 255, 255, 255 )
 		surface.DrawTexturedRect( 0, 0, 512, 255 )
-	else
-		draw.RoundedBox( 10, 0, 0, self:GetWide(), self:GetTall(), Color( 100, 139, 221, 125 ) )
-	end
+	--else
+	--	draw.RoundedBox( 10, 0, 0, self:GetWide(), self:GetTall(), Color( 100, 139, 221, 125 ) )
+	--end
 end
 
 function ShowHelpMenu()
