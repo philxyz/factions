@@ -122,7 +122,7 @@ function SPropProtection.PlayerCanTouch(ply, ent)
 		if (not ent:GetNetworkedString("Owner") or ent:GetNetworkedString("Owner") == "") then
 			ent:SetNetworkedString("Owner", "World")
 		end
-		if (ply:GetActiveWeapon():GetClass() ~= "weapon_physgun" and ply:GetActiveWeapon():GetClass() ~= "gmod_tool") then
+		if (ply ~= nil and ply:GetActiveWeapon() and IsValid(ply:GetActiveWeapon()) and ply:GetActiveWeapon():GetClass() ~= "weapon_physgun" and ply:GetActiveWeapon():GetClass() ~= "gmod_tool") then
 			return true
 		end
 	end
