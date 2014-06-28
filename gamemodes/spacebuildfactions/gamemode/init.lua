@@ -177,7 +177,11 @@ if not file.Exists( "factions/musicdata.txt", "DATA" ) then
 	fac_Msg( "data/factions/musicdata.txt not found, creating one from defaults." )
 end
 
-fac_addonsongs = util.KeyValuesToTable( file.Read( "factions/musicdata.txt", "DATA" ) )
+local musicDataFileContent = file.Read( "factions/musicdata.txt", "DATA" )
+fac_addonsongs = nil
+if musicDataFileContent ~= nil and #musicDataFileContent > 0 then
+	fac_addonsongs = util.KeyValuesToTable( file.Read( "factions/musicdata.txt", "DATA" ) )
+end
 
 if type(fac_addonsongs) ~= "table" then
 	fac_Error("Factions music data file malformed! Replacing the malformed file with a default music data file. The malformed file has been saved to: data/factions/malformed_musicdata.txt", "data/factions/musicdata.txt")
