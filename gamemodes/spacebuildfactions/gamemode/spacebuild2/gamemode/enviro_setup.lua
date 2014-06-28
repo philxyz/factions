@@ -16,6 +16,7 @@ function GM:Register_Sun()
 						if SunAngle == nil then
 							local tpos = target:GetPos()
 							local en = ent:GetPos()
+							TrueSun = en
 
 							local mid = (tpos - en);
 							SunAngle = mid:GetNormalized()

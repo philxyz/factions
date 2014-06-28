@@ -52,6 +52,8 @@ TrueSun = nil
 SunAngle = nil
 SB_DEBUG = false --Turn this off if you don't want to get debug data in console!!
 
+include( 'enviro_setup.lua' )
+
 local Energy_Increment = 5
 local Coolant_Increment = 5
 
@@ -104,9 +106,12 @@ function GM:GetTemperature(ent, ltemp, stemp, sunburn)
 	local temperature = 14
 	local trace = {}
 	
+	print("SB2 DEBUG: TrueSun = " .. tostring(TrueSun))
 	if not ( TrueSun == nil ) then
 		SunAngle = (entpos - TrueSun)
 		SunAngle:Normalize()
+		
+		print("SB2 DEBUG: SunAngle = " .. tostring(SunAngle))
 		
 		local startpos = (entpos - (SunAngle * 4096))
 		trace.start = startpos
@@ -312,8 +317,6 @@ end
 
 
 -- Initialization functions
-
-include( 'enviro_setup.lua' )
 
 function GM:InitPostEntity()
 	self:Register_Environments()
