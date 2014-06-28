@@ -1,6 +1,15 @@
 -- shanjaq: Start Life Support mod.
 -- HUDMod by Kyzer
 
+surface.CreateFont("SpaceHUD", {
+	font = "Tahoma",
+	size = 18,
+	weight = 500,
+	antialias = true,
+	outline = true,
+	italic = false
+})
+
 local FairTemp_Min = 288
 local FairTemp_Max = 303
 local ls_habitat = 0
@@ -18,7 +27,7 @@ local H1	= ScH / 10
 local H2	= ScH - H1
 local H3	= H1 - 5
 local TH	= { H2 + 5, H2 + 20, H2 + 35, H2 + 50 }
-local Font	= "ScoreboardText"
+local Font	= "SpaceHUD"
 
 local White	= Color(225,225,225,255)
 local Black	= Color(0,0,0,100)
