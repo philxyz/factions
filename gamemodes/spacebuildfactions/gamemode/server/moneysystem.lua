@@ -263,7 +263,7 @@ function Factions.GetStoolCost( mode, ply, stool, trace, leftclick, rightclick )
 			end
 		end
 
-		dump(fac_Stools)
+		--dump(fac_Stools)
 
 		for m, tbl in pairs(fac_Stools) do
 
