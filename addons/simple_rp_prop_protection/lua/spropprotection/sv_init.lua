@@ -201,8 +201,11 @@ hook.Add("PlayerInitialSpawn", "SPropProtection.PlayerInitialSpawn", SPropProtec
 
 function SPropProtection.Disconnect(ply)
 	if(tonumber(SPropProtection["Config"]["dpd"]) == 1) then
-		if(ply:IsAdmin() and tonumber(SPropProtection["Config"]["dae"]) == 0) then return end
-		timer.Create("SPropProtection.DRemove: "..ply:SteamID(), tonumber(SPropProtection["Config"]["delay"]), 1, function() SPropProtection.DRemove(ply:SteamID(), ply:Nick()) end)
+		if(ply ~= nil and ply:IsAdmin() and tonumber(SPropProtection["Config"]["dae"]) == 0) then return end
+
+		local delay = SPropProtection["Config"]["delay"] or 30
+
+		timer.Simple(tonumber(delay), function() SPropProtection.DRemove(ply:SteamID(), ply:Nick()) end)
 	end
 end
 hook.Add("PlayerDisconnected", "SPropProtection.Disconnect", SPropProtection.Disconnect)
