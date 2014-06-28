@@ -254,6 +254,8 @@ end
 
 local strLen = 200 --length of each string part. this shouldn't need to be ever changed
 function meta:UmsgLarge(str,str2) --accepts a table, returns a table. uses util.TableToKeyValues and util.KeyValuesToTable, so some data may be lost
+	if not str2 then return end
+
 	if type(str2) == "table" then str2 = util.TableToKeyValues(str2) end
 	local len = string.len(str2)
 	
