@@ -16,7 +16,7 @@ function GM:CreateScoreboard()
 	
 	end
 
-	pScoreBoard = vgui.Create( "ScoreBoard" )
+	pScoreBoard = vgui.Create( "FactionsScoreBoard" )
 
 end
 

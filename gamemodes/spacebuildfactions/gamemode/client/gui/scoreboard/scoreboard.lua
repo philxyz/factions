@@ -54,45 +54,45 @@ function PANEL:Init()
 
 	SCOREBOARD = self
 
-	self.Hostname = vgui.Create( "Label", self )
+	self.Hostname = vgui.Create( "DLabel", self )
 	self.Hostname:SetText( GetGlobalString( "ServerName" ) )
 
-	self.HumanHeader = vgui.Create( "Label", self )
+	self.HumanHeader = vgui.Create( "DLabel", self )
 	self.HumanHeader:SetText( "" )
 	
-	self.AlienHeader = vgui.Create( "Label", self )
+	self.AlienHeader = vgui.Create( "DLabel", self )
 	self.AlienHeader:SetText( "" )
 	
 	self.PlayerFrameHuman = vgui.Create( "PlayerFrame", self )
 	self.PlayerFrameAlien = vgui.Create( "PlayerFrame", self )
 	
 	self.HumanLbl = {}
-		self.HumanLbl.Planets = vgui.Create( "Label", self )
+		self.HumanLbl.Planets = vgui.Create( "DLabel", self )
 		self.HumanLbl.Planets:SetText( "Planets" )
 		
-		self.HumanLbl.Ping = vgui.Create( "Label", self )
+		self.HumanLbl.Ping = vgui.Create( "DLabel", self )
 		self.HumanLbl.Ping:SetText( "Ping" )
 		
-		self.HumanLbl.Kills = vgui.Create( "Label", self )
+		self.HumanLbl.Kills = vgui.Create( "DLabel", self )
 		self.HumanLbl.Kills:SetText( "Kills" )
 		
-		self.HumanLbl.Deaths = vgui.Create( "Label", self )
+		self.HumanLbl.Deaths = vgui.Create( "DLabel", self )
 		self.HumanLbl.Deaths:SetText( "Deaths" )
 	
 	self.AlienLbl = {}
-		self.AlienLbl.Planets = vgui.Create( "Label", self )
+		self.AlienLbl.Planets = vgui.Create( "DLabel", self )
 		self.AlienLbl.Planets:SetText( "Planets" )
 		
-		self.AlienLbl.Ping = vgui.Create( "Label", self )
+		self.AlienLbl.Ping = vgui.Create( "DLabel", self )
 		self.AlienLbl.Ping:SetText( "Ping" )
 		
-		self.AlienLbl.Kills = vgui.Create( "Label", self )
+		self.AlienLbl.Kills = vgui.Create( "DLabel", self )
 		self.AlienLbl.Kills:SetText( "Kills" )
 		
-		self.AlienLbl.Deaths = vgui.Create( "Label", self )
+		self.AlienLbl.Deaths = vgui.Create( "DLabel", self )
 		self.AlienLbl.Deaths:SetText( "Deaths" )
 		
-	self.Mode = vgui.Create( "Label", self )
+	self.Mode = vgui.Create( "DLabel", self )
 	self.Mode:SetText( "Free" ) --predict that it's going to be free mode
 
 	self.PlayerRows = {}
@@ -340,4 +340,4 @@ function PANEL:UpdateScoreboard( force )
 
 end
 
-vgui.Register( "ScoreBoard", PANEL, "Panel" )
+vgui.Register( "FactionsScoreBoard", PANEL, "Panel" )

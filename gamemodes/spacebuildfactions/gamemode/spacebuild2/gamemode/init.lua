@@ -106,12 +106,9 @@ function GM:GetTemperature(ent, ltemp, stemp, sunburn)
 	local temperature = 14
 	local trace = {}
 	
-	print("SB2 DEBUG: TrueSun = " .. tostring(TrueSun))
 	if not ( TrueSun == nil ) then
 		SunAngle = (entpos - TrueSun)
 		SunAngle:Normalize()
-		
-		print("SB2 DEBUG: SunAngle = " .. tostring(SunAngle))
 		
 		local startpos = (entpos - (SunAngle * 4096))
 		trace.start = startpos

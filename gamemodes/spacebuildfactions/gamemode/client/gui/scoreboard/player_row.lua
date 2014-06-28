@@ -58,11 +58,11 @@ function PANEL:Init()
 	self.Size = 24
 	self:OpenInfo( false )
 	
-	self.lblName 	= vgui.Create( "Label", self )
-	self.lblPlanets = vgui.Create( "Label", self )
-	self.lblFrags 	= vgui.Create( "Label", self )
-	self.lblDeaths 	= vgui.Create( "Label", self )
-	self.lblPing 	= vgui.Create( "Label", self )
+	self.lblName 	= vgui.Create( "DLabel", self )
+	self.lblPlanets = vgui.Create( "DLabel", self )
+	self.lblFrags 	= vgui.Create( "DLabel", self )
+	self.lblDeaths 	= vgui.Create( "DLabel", self )
+	self.lblPing 	= vgui.Create( "DLabel", self )
 
 end
 

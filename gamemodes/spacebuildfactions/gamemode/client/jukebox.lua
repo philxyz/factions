@@ -94,7 +94,7 @@ usermessage.Hook("musicst", function()
 	if file.Exists("factions/music.txt", "DATA") then
 		local music1 = file.Read("factions/music.txt", "DATA")
 
-		if music1 == "true" then Factions.music = true; print("enabling jukebox...") else Factions.music = false; print("not enabling jukebox...") end
+		if music1 == "true" then Factions.music = true else Factions.music = false end
 	end
 
 	if Factions.music == true then
@@ -106,7 +106,7 @@ usermessage.Hook("musicst", function()
 		local name = string.gsub( song.name, "music/", "" )
 		name = string.gsub( name, ".mp3", "" )
 			
-		Msg( "[FAC Jukebox] Now Playing: " ..name .. "\n" )
+		Msg( "[FAC Jukebox] Now Playing: " .. name .. "\n" )
 		
 		RunConsoleCommand( "fac_music", "1" )
 		schoolme = true

@@ -254,10 +254,10 @@ function Factions.GetStoolCost( mode, ply, stool, trace, leftclick, rightclick )
 			end
 
 			for k, v in pairs(t) do
-				if type(k) == "table" then
-				elseif (type(k) == "string" or type(k) == "number") and (type(v) == "string" or type(v) == "number") then
-					print(tostring(k) .. ": " .. tostring(v))
-				else
+				if type(k) ~= "table" then
+				--elseif (type(k) == "string" or type(k) == "number") and (type(v) == "string" or type(v) == "number") then
+					--print(tostring(k) .. ": " .. tostring(v))
+				--else
 					dump(v, indnt + 1)
 				end
 			end
