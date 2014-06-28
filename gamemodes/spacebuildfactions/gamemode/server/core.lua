@@ -179,7 +179,7 @@ function GM:CapturePlanet( ply, flag )
 		
 		if flag.homeplanet then
 			for _, pl in pairs( player.GetAll() ) do
-				Factions.Notify( pl, ply:Nick() .. " has captured the " .. team.GetName( flag.homeplanet ) .. " home planet! All " .. team.GetName( ply:Team() ) .. " recieve $1000. Restarting in 30 seconds." , "NOTIFY_GENERIC", 30, "mmmhmm" )
+				Factions.Notify( pl, ply:Nick() .. " has captured the " .. team.GetName( flag.homeplanet ) .. " home planet! All " .. team.GetName( ply:Team() ) .. " receive $1000. Restarting in 30 seconds." , "NOTIFY_GENERIC", 30, "mmmhmm" )
 			
 				if pl:Team() == ply:Team() then
 					pl:AddMoney(1000)

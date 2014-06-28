@@ -58,15 +58,12 @@ function GM:PhysgunPickup( ply, ent )
 	if ( ent:GetClass() == "player" ) and not ply:IsAdmin() then return false end
 
 	if ent:IsValid() then
-		print("entity is valid")
-
 		if ent:GetTable().PhysgunPickup then
 			print ("this entity defines a PhysgunPickup method")
 			local rtn = ent:GetTable():PhysgunPickup( ply )
 			ent:SetVar( "IsPhysed", rtn )
 			return rtn
 		end
-
 	end
 	local rtn = self.BaseClass:PhysgunPickup( ply, ent )
 	ent:SetVar( "IsPhysed", rtn )

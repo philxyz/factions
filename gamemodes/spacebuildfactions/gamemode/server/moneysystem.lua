@@ -60,10 +60,10 @@ function Factions.Paychecks()
 		
 		for _,ply in pairs( player.GetAll() ) do
 			if ply:Team() == TEAM_HUMANS and Hamt > 0 then
-				Factions.Notify( ply, "You have recieved $" .. Hamt*Factions.Config.PlanetIncome .. " for the " .. Hamt .. " planets that your team owns.", NOTIFY_GENERIC, 8 )
+				Factions.Notify( ply, "You have received $" .. Hamt*Factions.Config.PlanetIncome .. " for the " .. Hamt .. " planets that your team owns.", NOTIFY_GENERIC, 8 )
 				ply:AddMoney(Hamt*Factions.Config.PlanetIncome)
 			elseif ply:Team() == TEAM_ALIENS and Aamt > 0 then
-				Factions.Notify( ply, "You have recieved $" .. Aamt*Factions.Config.PlanetIncome .. " for the " .. Aamt .. " planets that your team owns.", NOTIFY_GENERIC, 8 )
+				Factions.Notify( ply, "You have received $" .. Aamt*Factions.Config.PlanetIncome .. " for the " .. Aamt .. " planets that your team owns.", NOTIFY_GENERIC, 8 )
 				ply:AddMoney(Aamt*Factions.Config.PlanetIncome)
 			end
 		end
@@ -80,7 +80,7 @@ function Factions.Paychecks()
 				
 		for _,ply in pairs( player.GetAll() ) do
 			if (plyvar[ ply ].flags or 0) > 0 then
-				Factions.Notify( ply, "You have recieved $" .. plyvar[ ply ].flags*Factions.Config.PlanetIncome .. " for the " .. plyvar[ ply ].flags .. " planets that you own.", "NOTIFY_GENERIC", 8 )
+				Factions.Notify( ply, "You have received $" .. plyvar[ ply ].flags*Factions.Config.PlanetIncome .. " for the " .. plyvar[ ply ].flags .. " planets that you own.", "NOTIFY_GENERIC", 8 )
 							
 				ply:AddMoney(plyvar[ ply ].flags*Factions.Config.PlanetIncome)
 			end

@@ -27,7 +27,7 @@ PlayerRespawnTime			= 15, --in seconds
 
 DefaultMode				= "Free", --the default mode. Possible values: "Free", "War"
 
-PlanetIncome				= 100, --amount of money recieved for owning planets (per planet)
+PlanetIncome				= 100, --amount of money received for owning planets (per planet)
 
 ForceIronsights				= false, --force players to look through the ironsights of their gun?
 AllowFACSWEPS				= true, --allow the purchasing of factions sweps for everyone?
@@ -46,9 +46,9 @@ RockRegenMinimumRockValue	= 150, --When the amount of rocks drops below this num
 --You can set this number to a negative number to disable rock regeneration. One stone_large is worth 80.
 RockRegenRespawnWait		= 150, --How long to wait inbetween spawning rocks, in seconds.
 
-RockMoneyTeam				= 25, --Amount of money recieved for mining your own team's rocks. For example, an alien mines a yellow rock, or a human mines a black rock
-RockMoneyTrade				= 50, --Amount of money recieved for obtaining the other team's rock. For example, an alien obtains a black rock, or a human recieves a yellow rock
-RockMoneyRed				= 100, --Amount of money recieved for mining a red rock.
+RockMoneyTeam				= 25, --Amount of money received for mining your own team's rocks. For example, an alien mines a yellow rock, or a human mines a black rock
+RockMoneyTrade				= 50, --Amount of money received for obtaining the other team's rock. For example, an alien obtains a black rock, or a human receives a yellow rock
+RockMoneyRed				= 100, --Amount of money received for mining a red rock.
 
 RockRemovalTimer			= 300, --how long to wait to remove small rocks
 MaxTeamSmallRocks     		= 30, --per team (only counts if it's on the planet)
