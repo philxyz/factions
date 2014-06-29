@@ -9,7 +9,7 @@
 	"author_email"	"ring2ding@gmail.com"
 	"author_url"	"http://www.sbfactions.blogspot.com/"
 	
-	"info"		"Spacebuild Factions Gamemode"
+	"info"		"Aliens v Humans Space Mining and War Roleplay"
 	"hide"		"0"
 	"menusystem"	"1"
 }

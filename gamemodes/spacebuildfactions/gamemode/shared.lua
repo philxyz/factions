@@ -2,7 +2,7 @@
 --    Factions
 -- Team Ring-Ding
 ------------------------------------------
-GM.Name			= "Factions 1.0"
+GM.Name			= "Spacebuild Factions"
 GM.Author		= "Team Ring-Ding"
 GM.Email		= "Ring2Ding@gmail.com"
 GM.Website		= "http://sbfactions.blogspot.com/"
