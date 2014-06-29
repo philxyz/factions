@@ -92,8 +92,8 @@ resource.AddFile("models/greenvort.mdl")
 resource.AddFile("models/redvort.mdl")
 
 resource.AddFile("models/alien_red.mdl")
-resource.AddFile("models/alien_green.mdl")
-resource.AddFile("models/alien_blue.mdl")
+--resource.AddFile("models/alien_green.mdl")
+--resource.AddFile("models/alien_blue.mdl")
 
 Msg( "Sending materials to client\n" )
 
