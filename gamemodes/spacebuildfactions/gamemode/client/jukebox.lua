@@ -59,7 +59,7 @@ function Factions.PlaySong( song )
 		return
 	end
 	
-	RunConsoleCommand("stopsounds")
+	RunConsoleCommand("stopsound")
 	
 	song.name = k
 	song.length = poss[ k ]
@@ -148,7 +148,7 @@ local function Music( ply, cmd, args )
 		Factions.music = false
 		Msg("[FAC Jukebox] Music Disabled\n")
 		
-		RunConsoleCommand("stopsounds")
+		RunConsoleCommand("stopsound")
 		song.length = 0
 		song.starttime = 0
 	end
@@ -156,7 +156,7 @@ end
 concommand.Add( "fac_music", Music, fac_OneTwoAC )
 
 local function NextTrack( ply, cmd, args ) --developers use Factions.NextSong instead
-	RunConsoleCommand("stopsounds")
+	RunConsoleCommand("stopsound")
 	
 	song.length = 0
 	
