@@ -24,9 +24,10 @@ function PANEL:Init()
 	
 	self.playerbuttons = {}
 	
-	self.TypeBox = vgui.Create( "TextEntry", self )
+	self.TypeBox = vgui.Create( "DTextEntry", self )
 	self.TypeBox:SetKeyboardInputEnabled( true )
 	self.TypeBox:SetEnabled( true )
+	self.TypeBox:AllowInput(true)
 	self.TypeBox:MakePopup()
 	
 	self.Offer = vgui.Create( "ButtonText", self )
