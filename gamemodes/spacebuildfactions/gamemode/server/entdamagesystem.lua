@@ -16,7 +16,7 @@ function Factions.EntityTakesDamage( victim, dmginfo )--inflictor, attacker, amo
 
 	if victim:GetClass() == "prop_ragdoll" then return false end
 	
-	if not gamemode.Call("CanDamageEntity", dmginfo) then return false end
+	if not gamemode.Call("CanDamageEntity", victim, attacker, amount, dmginfo) then return false end
 	
 	Factions.DamageEntity( victim, amount )
 end
