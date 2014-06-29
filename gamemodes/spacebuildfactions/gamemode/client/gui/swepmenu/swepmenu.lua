@@ -332,7 +332,7 @@ function PANEL:Paint(x, y)
 		
 	elseif self.page == "Equipment" then
 		draw.SimpleText( self.page, "Header", 220, 155, gray,1,1)
-		draw.SimpleText( "p", "SM_WeaponTitle", 335, 180, gray,1,1)
+		--draw.SimpleText( "p", "SM_WeaponTitle", 335, 180, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Equipment.Physgun.Cost) .. " " .. Factions.Config.Weapons.Equipment.Physgun.Name, "Body", self.Tools.Physgun.x - 100, self.Tools.Physgun.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Equipment.Knife.Cost) .. " " .. Factions.Config.Weapons.Equipment.Knife.Name, "Body", self.Tools.Knife.x - 100, self.Tools.Knife.y + 18, gray,1,1)
@@ -342,7 +342,7 @@ function PANEL:Paint(x, y)
 	
 	elseif self.page == "Ammunition" then
 		draw.SimpleText( self.page, "Header", 220, 155, gray,1,1)
-		draw.SimpleText( "W", "SM_WeaponTitle", 330, 180, gray,1,1)
+		--draw.SimpleText( "W", "SM_WeaponTitle", 330, 180, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Pistols.Ammo.Cost) .. " " .. Factions.Config.Weapons.Pistols.Ammo.Name, "Body", self.Ammo.Pistol.x - 100, self.Ammo.Pistol.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Shotguns.Ammo.Cost) .. " " .. Factions.Config.Weapons.Shotguns.Ammo.Name, "Body", self.Ammo.Shotgun.x - 100, self.Ammo.Shotgun.y + 18, gray,1,1)
@@ -353,19 +353,19 @@ function PANEL:Paint(x, y)
 		
 	elseif self.page == "Pistols" then
 		draw.SimpleText( self.page, "Header", 210, 155, gray,1,1)
-		draw.SimpleText( "f", "SM_WeaponTitle", 320, 180, gray,1,1)
+		--draw.SimpleText( "f", "SM_WeaponTitle", 320, 180, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Pistols.Glock.Cost) .. " " .. Factions.Config.Weapons.Pistols.Glock.Name, "Body", self.Pistols.Glock.x - 100, self.Pistols.Glock.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Pistols.FiveSeven.Cost) .. " " .. Factions.Config.Weapons.Pistols.FiveSeven.Name, "Body", self.Pistols.FiveSeven.x - 100, self.Pistols.FiveSeven.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Pistols.Deagle.Cost) .. " " .. Factions.Config.Weapons.Pistols.Deagle.Name, "Body", self.Pistols.Deagle.x - 100, self.Pistols.Deagle.y + 18, gray,1,1)
 	elseif self.page == "Shotguns" then
 		draw.SimpleText( self.page, "Header", 190, 155, gray,1,1)
-		draw.SimpleText( "k", "SM_WeaponTitle", 330, 195, gray,1,1)
+		--draw.SimpleText( "k", "SM_WeaponTitle", 330, 195, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Shotguns.Pump.Cost) .. " " .. Factions.Config.Weapons.Shotguns.Pump.Name, "Body", self.Shotguns.Pump.x - 100, self.Shotguns.Pump.y + 18, gray,1,1)
 	elseif self.page == "Sub Machine Guns" then
 		draw.SimpleText( self.page, "Header", 207, 155, gray,1,1)
-		draw.SimpleText( "x", "SM_WeaponTitle", 385, 180, gray,1,1)
+		--draw.SimpleText( "x", "SM_WeaponTitle", 385, 180, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.SMGs.Mac10.Cost) .. " " .. Factions.Config.Weapons.SMGs.Mac10.Name, "Body", self.SMGS.Mac10.x - 100, self.SMGS.Mac10.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.SMGs.TMP.Cost) .. " " .. Factions.Config.Weapons.SMGs.TMP.Name, "Body", self.SMGS.TMP.x - 100, self.SMGS.TMP.y + 18, gray,1,1)
@@ -373,14 +373,14 @@ function PANEL:Paint(x, y)
 		
 	elseif self.page == "Rifles" then
 		draw.SimpleText( self.page, "Header", 205, 155, gray,1,1)
-		draw.SimpleText( "w", "SM_WeaponTitle", 325, 190, gray,1,1)
+		--draw.SimpleText( "w", "SM_WeaponTitle", 325, 190, gray,1,1)
 	
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Rifles.AK47.Cost) .. " " .. Factions.Config.Weapons.Rifles.AK47.Name, "Body", self.Rifles.AK47.x - 100, self.Rifles.AK47.y + 18, gray,1,1)
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.Rifles.M4A1.Cost) .. " " .. Factions.Config.Weapons.Rifles.M4A1.Name, "Body", self.Rifles.M4.x - 100, self.Rifles.M4.y + 18, gray,1,1)
 		
 	elseif self.page == "Machine Guns" then
 		draw.SimpleText( self.page, "Header", 190, 155, gray,1,1)
-		draw.SimpleText( "z", "SM_WeaponTitle", 365, 180, gray,1,1)
+		--draw.SimpleText( "z", "SM_WeaponTitle", 365, 180, gray,1,1)
 		
 		draw.SimpleText( "$" .. tostring(Factions.Config.Weapons.MachineGuns.M249Para.Cost) .. " " .. Factions.Config.Weapons.MachineGuns.M249Para.Name, "Body", self.MachineGuns.MachineGun.x - 100, self.MachineGuns.MachineGun.y + 18, gray,1,1)
 	end
