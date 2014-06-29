@@ -158,7 +158,7 @@ function SPropProtection.PlayerCanTouch(ply, ent)
 			end
 		end
 		
-		for k, v in pairs(GAMEMODE.CameraList) do
+		for k, v in pairs(GAMEMODE.CameraList or {}) do
 			for b, j in pairs(v) do
 				if(j == ent) then
 					if(k == ply:SteamID() and e == ent) then
