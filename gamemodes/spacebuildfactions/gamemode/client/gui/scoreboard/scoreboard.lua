@@ -41,8 +41,8 @@ surface.CreateFont( "ScoreboardLabel", {
 local texGradient 	= surface.GetTextureID( "gui/center_gradient" )
 local texBG 	    = surface.GetTextureID( "gui/scoreboard/bg" )
 local texLogo 		= surface.GetTextureID( "gui/scoreboard/logo" )
-local humanheader   = surface.GetTextureID( "gui/scoreboard/humanheader2" )
-local alienheader   = surface.GetTextureID( "gui/scoreboard/alienheader2" )
+local humanheader   = surface.GetTextureID( "gui/scoreboard/humanheader" )
+local alienheader   = surface.GetTextureID( "gui/scoreboard/alienheader" )
 
 
 local PANEL = {}
