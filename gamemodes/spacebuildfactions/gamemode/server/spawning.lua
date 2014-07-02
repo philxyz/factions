@@ -9,7 +9,9 @@ local civmodel = { "models/player/Group01/female_04.mdl",
 			"models/player/Group01/male_03.mdl",
 			"models/player/Group01/male_08.mdl" }
 
-local alienmodels = { "models/alien_red.mdl" }--, "models/alien_green.mdl", "models/alien_blue.mdl" }
+local alienmodels = { "models/redvort.mdl",
+			"models/greenvort.mdl",
+			"models/bluevort.mdl" } --, "models/alien_green.mdl", "models/alien_blue.mdl"}
 
 ROCKS = {}
 ROCKS.human = {}
