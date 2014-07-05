@@ -84,7 +84,7 @@ function PANEL:Init()
 		self.AlienLbl.Planets:SetText( "Planets" )
 		
 		self.AlienLbl.Ping = vgui.Create( "DLabel", self )
-		self.AlienLbl.Ping:SetText( "Ping" )
+		self.AlienLbl.Ping:SetText( "Latency" )
 		
 		self.AlienLbl.Kills = vgui.Create( "DLabel", self )
 		self.AlienLbl.Kills:SetText( "Kills" )
@@ -261,7 +261,7 @@ function PANEL:PerformLayout()
 		self.HumanLbl.Planets:SetPos( 260, self.HumanHeader.y + 4 )
 		self.HumanLbl.Kills:SetPos( 341, self.HumanHeader.y + 4 )
 		self.HumanLbl.Deaths:SetPos( 396, self.HumanHeader.y + 4 )
-		self.HumanLbl.Ping:SetPos( 461, self.HumanHeader.y + 4 )
+		self.HumanLbl.Ping:SetPos( 443, self.HumanHeader.y + 4 )
 	
 	self.AlienLbl.Planets:SizeToContents()
 		self.AlienLbl.Kills:SizeToContents()
@@ -271,7 +271,7 @@ function PANEL:PerformLayout()
 		self.AlienLbl.Planets:SetPos( 260, self.AlienHeader.y + 4 )
 		self.AlienLbl.Kills:SetPos( 341, self.AlienHeader.y + 4 )
 		self.AlienLbl.Deaths:SetPos( 396, self.AlienHeader.y + 4 )
-		self.AlienLbl.Ping:SetPos( 461, self.AlienHeader.y + 4 )
+		self.AlienLbl.Ping:SetPos( 443, self.AlienHeader.y + 4 )
 end
 
 --[[-------------------------------------------------------

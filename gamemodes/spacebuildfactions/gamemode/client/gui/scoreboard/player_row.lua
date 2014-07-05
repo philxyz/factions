@@ -33,6 +33,7 @@ end
 --[[-------------------------------------------------------
    Name: UpdatePlayerData
 ---------------------------------------------------------]]
+
 function PANEL:UpdatePlayerData()
 
 	if ( not self.Player ) then return end
@@ -47,7 +48,7 @@ function PANEL:UpdatePlayerData()
 	end
 	self.lblFrags:SetText( self.Player:Frags() )
 	self.lblDeaths:SetText( self.Player:Deaths() )
-	self.lblPing:SetText( tostring(self.Player:Ping()) + "ms" )
+	self.lblPing:SetText( tostring(self.Player:Ping()) .. "ms" )
 end
 
 --[[-------------------------------------------------------
@@ -136,7 +137,7 @@ function PANEL:PerformLayout()
 	
 	local COLUMN_SIZE = 50
 	
-	self.lblPing:SetPos( self:GetWide() - COLUMN_SIZE * .45, 0 )
+	self.lblPing:SetPos( self:GetWide() - COLUMN_SIZE * .6, 0 )
 	self.lblDeaths:SetPos( self:GetWide() - COLUMN_SIZE * 1.65, 0 )
 	self.lblFrags:SetPos( self:GetWide() - COLUMN_SIZE * 2.9, 0 )
 	self.lblPlanets:SetPos( self:GetWide() - COLUMN_SIZE * 4.3, 0 )
