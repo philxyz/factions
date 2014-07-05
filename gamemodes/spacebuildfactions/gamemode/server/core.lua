@@ -18,6 +18,16 @@ local health
 function GM:Overwrite()
 end
 
+function GM:CanDrive(ply, ent)
+	return false
+end
+
+function GM:CanProperty(ply, property, ent)
+	local isAdmin = ply:IsSuperAdmin() or ply:IsAdmin()
+	
+	if isAdmin and property == "remover" then return true end
+end
+
 include( '../spacebuild2/gamemode/enviro_setup.lua' )
 
 function GM:InitPostEntity()
