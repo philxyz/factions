@@ -476,6 +476,8 @@ local function AddNetworkFunctions( name, SetFunction, GetFunction, Default )
 			end
 			GetNetworkTable( IndexKey, name )[Key] = Value
 			
+			print("RD_Debug: IndexKey=" .. tostring(IndexKey) .. " type(IndexKey)=" .. tostring(type(IndexKey)))
+
 			if (type(IndexKey) != "number") and (IndexKey.RecvBeamNetVar) and (IndexKey:IsValid()) then
 				IndexKey:RecvBeamNetVar( name, Key, Value )
 			end
