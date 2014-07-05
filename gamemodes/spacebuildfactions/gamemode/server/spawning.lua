@@ -2,12 +2,12 @@
 --    Factions
 -- Team Ring-Ding
 ------------------------------------------
-local civmodel = { "models/player/Group01/female_04.mdl",
-			"models/player/Group01/female_06.mdl",
-			"models/player/Group01/female_07.mdl",
-			"models/player/Group01/male_02.mdl",
-			"models/player/Group01/male_03.mdl",
-			"models/player/Group01/male_08.mdl" }
+local civmodel = { "models/player/Group01/Female_04.mdl",
+			"models/player/Group01/Female_06.mdl",
+			"models/player/Group01/Female_07.mdl",
+			"models/player/Group01/Male_02.mdl",
+			"models/player/Group01/Male_03.mdl",
+			"models/player/Group01/Male_08.mdl" }
 
 local alienmodels = { "models/redvort.mdl",
 			"models/greenvort.mdl",
