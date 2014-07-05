@@ -47,7 +47,7 @@ function PANEL:UpdatePlayerData()
 	end
 	self.lblFrags:SetText( self.Player:Frags() )
 	self.lblDeaths:SetText( self.Player:Deaths() )
-	self.lblPing:SetText( self.Player:Ping() )
+	self.lblPing:SetText( tostring(self.Player:Ping()) + "ms" )
 end
 
 --[[-------------------------------------------------------

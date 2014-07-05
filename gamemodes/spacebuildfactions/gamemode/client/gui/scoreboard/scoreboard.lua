@@ -71,7 +71,7 @@ function PANEL:Init()
 		self.HumanLbl.Planets:SetText( "Planets" )
 		
 		self.HumanLbl.Ping = vgui.Create( "DLabel", self )
-		self.HumanLbl.Ping:SetText( "Ping" )
+		self.HumanLbl.Ping:SetText( "Latency" )
 		
 		self.HumanLbl.Kills = vgui.Create( "DLabel", self )
 		self.HumanLbl.Kills:SetText( "Kills" )
@@ -93,7 +93,7 @@ function PANEL:Init()
 		self.AlienLbl.Deaths:SetText( "Deaths" )
 		
 	self.Mode = vgui.Create( "DLabel", self )
-	self.Mode:SetText( "Free" ) --predict that it's going to be free mode
+	self.Mode:SetText( "Free" ) --assume free mode
 
 	self.PlayerRows = {}
 
