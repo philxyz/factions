@@ -1,4 +1,4 @@
-"spacebuildfactions"
+"factions"
 {
 	"base"		"sandbox"
 	"title"		"Spacebuild Factions"
