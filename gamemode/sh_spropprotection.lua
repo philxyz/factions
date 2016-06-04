@@ -3,7 +3,7 @@
 --	By Spacetech
 ------------------------------------
 
-AddCSLuaFile("autorun/sh_spropprotection.lua")
+AddCSLuaFile("sh_spropprotection.lua")
 AddCSLuaFile("spropprotection/cl_init.lua")
 AddCSLuaFile("spropprotection/sh_cppi.lua")
 
