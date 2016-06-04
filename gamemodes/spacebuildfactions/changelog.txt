@@ -1,3 +1,6 @@
+-----Factions 1.2.0-----
+[+] Removed Spacebuild 2 as a component and altered Factions to use whatever Spacebuild addon is present
+
 -----Factions 1.1.0-----
 [!] Fixed Factions to work with Gmod 13
 [+] Include updated mapping tutorials

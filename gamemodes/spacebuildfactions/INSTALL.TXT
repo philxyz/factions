@@ -1,13 +1,13 @@
 ****** Instructions for Spacebuild Factions Content with Spacetech's Simple Prop Protection ******
 
-Everything goes into your garrysmod folder.
+Place this folder into your "garrysmod/gamemodes" folder.
 
-- "Simple Prop Protection" was created by Spacetech and is available on http://garrysmod.org/
+- Spacebuild Factions requires a Spacebuild addon (Such as Spacebuild 2 or Spacebuild 3) to be installed.
 
-- I have Spacetech's written permission to distribute this extended version as a bundled component for the purpose of RP compatibility.
+- "Simple Prop Protection" was created by Spacetech and is included. Please do not use other prop protection at the same time. I have Spacetech's written permission to distribute this extended version (Simple RP Prop Protection) as a bundled component for the purpose of RP compatibility.
 
 - Kathar has given permission to include his flags in other content packs. For that reason, they are incuded here.
 
-- Special thanks of course to RingDing for creating Spacebuild Factions
+- Special thanks of course to RingDing for creating Spacebuild Factions / Global RP / Aliens vs Humans RP
 
--- philxyz, May 2014
+-- philxyz, Jun 2016

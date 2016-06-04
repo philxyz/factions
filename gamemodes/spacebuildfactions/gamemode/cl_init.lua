@@ -8,13 +8,6 @@ Msg("Loading Spacebuild Factions Client\n")
 Msg("--------------------------------------------------\n")
 
 ------------------------------------------
--- Load Spacebuild
-------------------------------------------
-Msg("Loading required Spacebuild 2 by LS/RD/SB Team\n")
-
-include("spacebuild2/gamemode/cl_init.lua")
-
-------------------------------------------
 -- Load Factions
 ------------------------------------------
 Msg("Loading Spacebuild Factions client files\n")

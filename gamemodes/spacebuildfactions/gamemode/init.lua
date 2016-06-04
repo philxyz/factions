@@ -16,14 +16,6 @@ SB_AIR_N = 2
 SB_AIR_H = 3
 
 ------------------------------------------
--- Load Spacebuild
-------------------------------------------
-Msg("Loading Spacebuild 2 by LS/RD/SB Team\n")
-
-include("spacebuild2/gamemode/init.lua")
-AddCSLuaFile("spacebuild2/gamemode/cl_init.lua")
-
-------------------------------------------
 -- Load Factions
 ------------------------------------------
 Msg("Loading Factions Server Files\n")

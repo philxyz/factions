@@ -2,10 +2,15 @@
 --    Factions
 -- Team Ring-Ding
 ------------------------------------------
+
+include("sh_spropprotection.lua")
+
 GM.Name			= "Spacebuild Factions"
 GM.Author		= "Team Ring-Ding"
 GM.Email		= "Ring2Ding@gmail.com"
 GM.Website		= "http://sbfactions.blogspot.com/"
+
+GM.SPACEBUILD		= true -- Activate the installed Spacebuild Addon
 
 --Enumerations--
 TEAM_HUMANS		= 101

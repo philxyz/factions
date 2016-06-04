@@ -28,8 +28,6 @@ function GM:CanProperty(ply, property, ent)
 	if isAdmin and property == "remover" then return true end
 end
 
-include( '../spacebuild2/gamemode/enviro_setup.lua' )
-
 function GM:InitPostEntity()
 	-- Clobbered Spacebuild2 and Spacebuild3 code
 	self:Register_Environments()
