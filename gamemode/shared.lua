@@ -2,9 +2,6 @@
 --    Factions
 -- Team Ring-Ding
 ------------------------------------------
-
-include("sh_spropprotection.lua")
-
 GM.Name			= "Spacebuild Factions"
 GM.Author		= "Team Ring-Ding"
 GM.Email		= "Ring2Ding@gmail.com"
@@ -31,6 +28,8 @@ DeriveGamemode( "sandbox" )
 Factions = {}
 
 Factions.Version = string.gsub( GM.Name, "Factions ", "" )
+
+include("sh_spropprotection.lua")
 
 --this table is not necessarily accurate client-side and may not work for later version of these addons
 Factions.Addons = {}

@@ -29,12 +29,6 @@ function GM:CanProperty(ply, property, ent)
 end
 
 function GM:InitPostEntity()
-	-- Clobbered Spacebuild2 and Spacebuild3 code
-	self:Register_Environments()
-	self:Register_Sun()
-	self:AddSentsToList()
-	-- End Spacebuild Code
-
 	gamemode.Call( "BuildPlanetsTable" )
 	
 	local args = Factions.Config.DefaultMode
@@ -411,61 +405,6 @@ function GM:RemoveNPCS()
 		if npc:IsValid() then
 			npc:Remove()
 		end
-	end
-end
-
-local time2 = 1
-function GM:Think()
-	-- Clobbered Spacebuild2 and Spacebuild3 code
-	-- Deals with SB2 and SB3 differences
-	-- This version of spacebuild factions is built to work with SB2 only
-	-- and it includes SB2 as its engine. the SB3 code is left in for
-	-- study by anyone that wants to use it.
-	
-	-- If it is time to save resources, do that and then schedule again
-	-- for 5 seconds time.
-	if time2 < CurTime() then
-        	gamemode.Call( "SaveResources" )
-        	time2 = CurTime() + 5
-        end
-	
-        
-        -- If (we are running SB2 and we are not in space)
-	-- or
-	-- (we are running SB3 and we are not in space)
-	-- then don't run any of the below code.
-	if (not self.GetPlanets and InSpace == 0) or (self.GetPlanets and SB_InSpace == 0) then return end
-        
-
-	if CurTime() < (NextUpdateTime or 0) then return end
-
-	-- SB3 specific
-	if self.GetPlanets then
-		self:PerformEnvironmentCheck()
-		local ents = ents.FindByClass( "entityflame" )
-		for _, ent in ipairs( ents ) do
-			ent:Remove()
-		end
-		NextUpdateTime = CurTime() + 1
-	else -- SB2 specific
-		self:Space_Affect_Players()
-		if NextUpdate == 1 then
-			SB_Planet_Quake()
-			for _, class in ipairs( self.affected ) do
-				local ents = ents.FindByClass( class )
-				for _, ent in ipairs( ents ) do
-					self:Space_Affect_Ent( ent )
-				end
-			end
-			local ents = ents.FindByClass( "entityflame" )
-			for _, ent in ipairs( ents ) do
-				ent:Remove()
-			end
-			NextUpdate = 0
-		else
-			NextUpdate = 1
-		end
-		NextUpdateTime = CurTime() + 0.5
 	end
 end
 

@@ -38,6 +38,7 @@ include( "server/moneysystem.lua" )
 
 Msg("Adding Client Side Lua Files to Download Lists\n")
 AddCSLuaFile( "cl_init.lua" )
+AddCSLuaFile( "sh_spropprotection.lua" )
 AddCSLuaFile( "shared.lua" )
 AddCSLuaFile( "config.lua" )
 
