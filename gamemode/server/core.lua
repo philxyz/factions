@@ -230,9 +230,9 @@ function GM:BuildPlanetsTable()
 
 	local fac_Planets = self.fac_Planets --because I can
 	
-	if self.GetPlanets then
+	if SB.GetPlanets then
 		-- Spacebuild 3
-		local SBplanets = self:GetPlanets()
+		local SBplanets = SB.GetPlanets()
 		for k,v in pairs(SBplanets) do
 			table.insert(fac_Planets, {pos = v:GetPos(), radius = v.sbenvironment.size})
 		end
