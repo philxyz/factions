@@ -230,11 +230,9 @@ function GM:BuildPlanetsTable()
 
 	local fac_Planets = self.fac_Planets --because I can
 
-	local SB3GetPlanets = CAF.GetAddon("Spacebuild").GetPlanets
-	
-	if SB3GetPlanets then
+	if CAF ~= nil then
 		-- Spacebuild 3
-		local SBplanets = SB3GetPlanets()
+		local SBplanets = CAF.GetAddon("Spacebuild").GetPlanets()
 		for k,v in pairs(SBplanets) do
 			table.insert(fac_Planets, {pos = v:GetPos(), radius = v.sbenvironment.size})
 		end
