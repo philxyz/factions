@@ -5,6 +5,8 @@ Spacebuild Factions Gamemode for GMOD 13+
 
 * To install, clone this into your garrysmod/gamemodes folder
 
+* Make sure that your server's Workshop Collection includes the Vortigaunt Player Model addon (id 234085020)
+
 * Please ensure that you do not have any other prop protection installed
 since this gamemode includes Simple RP Prop Protection
 

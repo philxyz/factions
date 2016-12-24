@@ -9,9 +9,13 @@ local civmodel = { "models/player/Group01/Female_04.mdl",
 			"models/player/Group01/Male_03.mdl",
 			"models/player/Group01/Male_08.mdl" }
 
+--[[
+-- Don't use these, use an externally included alien from the workshop that has animations.
 local alienmodels = { "models/redvort.mdl",
 			"models/greenvort.mdl",
 			"models/bluevort.mdl" } --, "models/alien_green.mdl", "models/alien_blue.mdl"}
+]]
+local alienmodels = { "models/player/vortigaunt.mdl" } -- Uses addon "Vortigaunt Player Model" (234085020)
 
 ROCKS = {}
 ROCKS.human = {}

@@ -7,6 +7,8 @@ Msg("\n\n-------------------------------------------\n")
 Msg("Loading Factions Server, derived from sandbox\n")
 Msg("-------------------------------------------\n")
 
+resource.AddWorkshop("234085020") -- Instructs the client to get the Vortigaunt addon
+
 plyvar = {}
 
 -- Enums used for some functions in Spacebuild3
