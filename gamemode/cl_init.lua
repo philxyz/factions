@@ -40,7 +40,7 @@ if file.Exists("factions/stools.txt", "DATA") then Factions.Stools = util.KeyVal
 
 if type(Factions.Stools) ~= "table" or type(Factions.Stools.turret) ~= "table" or type(Factions.Stools.turret.cost) ~= "number" then
 	if LocalPlayer() ~= nil then
-		fac_Error( LocalPlayer():Nick() .. "'s stool file did not download correctly." )
+		fac_Error( LocalPlayer():Name() .. "'s stool file did not download correctly." )
 		LocalPlayer():ConCommand("fac_requeststools\n") --not the greatest because by the time the client gets the file the spawnmenu will already have loaded, but its better than nothing. Besides, this is a catchall anyway.
 	end
 end
