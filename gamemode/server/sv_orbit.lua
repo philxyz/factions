@@ -1,27 +1,28 @@
 -- This file was created by echo - http://www.garrysmod.org/downloads/?a=view&id=65402 (link might be dead by the time someone reads this)
 -- Credit and thanks for its creation goes to echo.
 -- SB Gravity Mod 0.5a
+-- Further Adjustments by philxyz and SnakeSVx
 
 local envs = {}
-	local entities = ents.FindByClass( "logic_case" )
-	for _, ent in ipairs( entities ) do
-		local values = ent:GetKeyValues()
-		for key, value in pairs(values) do
-			if key == "Case01" then
-				if value == "planet" then
-						local radius
-						for key2, value2 in pairs(values) do
-							if (key2 == "Case02") then radius = tonumber(value2) end
-						end
-						table.insert(envs, {['ent'] = ent, ['rad'] = radius})
-				end
-			end 
-		end
+local entities = ents.FindByClass( "logic_case" )
+for _, ent in ipairs( entities ) do
+	local values = ent:GetKeyValues()
+	for key, value in pairs(values) do
+		if key == "Case01" then
+			if value == "planet" then
+					local radius
+					for key2, value2 in pairs(values) do
+						if (key2 == "Case02") then radius = tonumber(value2) end
+					end
+					table.insert(envs, {['ent'] = ent, ['rad'] = radius})
+			end
+		end 
 	end
+end
 						
-CreateConVar( "sb_gravmul", "0.0006", FCVAR_NOTIFY )
+CreateConVar( "sb_gravmul", "0.0024", FCVAR_NOTIFY )
 CreateConVar( "sb_rad", 4000, FCVAR_NOTIFY )
-CreateConVar( "sb_updatera", "0.5", FCVAR_NOTIFY )
+CreateConVar( "sb_updatera", "0.1", FCVAR_NOTIFY )
 CreateConVar( "sb_affectnoclip", "0", FCVAR_NOTIFY )
 CreateConVar( "sb_disablegrav", "1", FCVAR_NOTIFY )
 
@@ -52,13 +53,16 @@ local function doPush(Entity, Gravity, posTocenter, totalRad, nonaffectRadius, a
 	
 end
 
+local nextUpdate = 0
+
 local function performUpdate()
 
-	local tickRate = tonumber(GetConVarNumber("sb_updatera"))
-	local nextUpdate = 0
+	local nextUpdateInterval = tonumber(GetConVarNumber("sb_updatera"))
 
-	if CurTime() < nextUpdate then return end
+	local ct = CurTime()
 
+	if ct > nextUpdate then
+		--print(tostring(ct))
 		local Gravity 		= tonumber(GetConVarNumber("sb_gravmul"))
 		local affectRadius 	= tonumber(GetConVarNumber("sb_rad"))
 		local touchNoclip 	= tonumber(GetConVarNumber("sb_affectnoclip")) == 1
@@ -125,7 +129,10 @@ local function performUpdate()
 			end
 		end
 
-	nextUpdate = CurTime() + tickRate
-
+		nextUpdate = CurTime() + nextUpdateInterval
+	end
 end
-hook.Add("Think", "Gravity_Push", performUpdate)
+
+if CAF == nil or CAF.getAddon("Spacebuild").getVersion() < 4 then
+	hook.Add("Think", "Gravity_Push", performUpdate)
+end
