@@ -226,15 +226,19 @@ function GM:CapturePlanet( ply, flag )
 end
 
 function GM:BuildPlanetsTable()
-	self.fac_Planets = {} --we have to build our own planets table, because spacebuild is too selfish to provide us with this easily
+	print("Calling BuildPlanetsTable()")
+
+	self.fac_Planets = {}
 
 	local fac_Planets = self.fac_Planets --because I can
 
 	if CAF ~= nil then
-		-- Spacebuild 3
-		local SBplanets = CAF.GetAddon("Spacebuild").GetPlanets()
-		for k,v in pairs(SBplanets) do
-			table.insert(fac_Planets, {pos = v:GetPos(), radius = v.sbenvironment.size})
+		-- Spacebuild 3 or 4
+		local SBEnvs = CAF.GetAddon("Spacebuild").GetPlanets()
+		for k,v in pairs(SBEnvs) do
+			local p = (v.GetPos and v.GetPos()) or v:getPosition() -- GetPos() = SB3, getPosition = SB4
+			table.insert(fac_Planets, {pos = p, radius = (v.size or v.radius)}) -- size = SB3, radius = SB4
+			print("Found " .. ((v.GetPos and "SB3 Planet") or (v.getPosition and "SB4 Environment")) .. " of radius " .. (v.GetPos and tostring(v.size) or (v.getPosition and tostring(v.radius))))
 		end
 	else
 		-- Scan the first 40 environments for planets (Spacebuild 2)

@@ -142,6 +142,6 @@ local function performUpdate()
 	end
 end
 
-if CAF == nil or CAF.getAddon("Spacebuild").getVersion() < 4 then
+if CAF == nil or CAF.GetAddon("Spacebuild").GetVersion() < 4 then
 	hook.Add("Think", "Gravity_Push", performUpdate)
 end
