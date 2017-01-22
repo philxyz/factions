@@ -236,9 +236,9 @@ function GM:BuildPlanetsTable()
 		-- Spacebuild 3 or 4
 		local SBEnvs = CAF.GetAddon("Spacebuild").GetPlanets()
 		for k,v in pairs(SBEnvs) do
-			local p = (v.GetPos and v.GetPos()) or v:getPosition() -- GetPos() = SB3, getPosition = SB4
-			table.insert(fac_Planets, {pos = p, radius = (v.size or v.radius)}) -- size = SB3, radius = SB4
-			print("Found " .. ((v.GetPos and "SB3 Planet") or (v.getPosition and "SB4 Environment")) .. " of radius " .. (v.GetPos and tostring(v.size) or (v.getPosition and tostring(v.radius))))
+			local p = (v.getPosition and v:getPosition()) or v:GetPos() -- getPosition = SB4, GetPos() = SB3
+			table.insert(fac_Planets, {pos = p, radius = ((v.getRadius and v:getRadius()) or v.size)}) -- size = SB3, radius = SB4
+			print("Found " .. ((v.getPosition and "SB4 Environment") or (v.GetPos and "SB3 Planet")) .. " of radius " .. (v.getRadius and tostring(v:getRadius()) or tostring(v.size)))
 		end
 	else
 		-- Scan the first 40 environments for planets (Spacebuild 2)
