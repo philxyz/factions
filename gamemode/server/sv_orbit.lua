@@ -47,8 +47,15 @@ local function doPush(Entity, Gravity, posTocenter, totalRad, nonaffectRadius, a
 		Entity:SetVelocity( forceVector )
 	else
 		local physObj = Entity:GetPhysicsObject()
-		local forceVector = (posTocenter - entityPos) * (physObj:GetMass() * estimatedForceMul)
-		physObj:ApplyForceCenter( forceVector )
+		local parentPhysObj, mass = physObj, physObj:GetMass()
+		for _, child in pairs(Entity:GetChildren()) do
+			physObj = child:GetPhysicsObject()
+			if IsValid(physObj) then
+				mass = mass + physObj:GetMass()
+			end
+		end
+		local forceVector = (posTocenter - entityPos) * (mass * estimatedForceMul)
+		parentPhysObj:ApplyForceCenter(forceVector)
 	end
 	
 end
@@ -79,9 +86,11 @@ local function performUpdate()
 	
 		
 		for _, ent in ipairs( entList ) do
-			if not ent:IsValid() 
-			or not ent:GetPhysicsObject():IsValid() 
-			or ent:GetPhysicsObject():IsAsleep() then
+			if not IsValid(ent) 
+				or not ent:GetPhysicsObject():IsValid() 
+				or ent:GetPhysicsObject():IsAsleep()
+				or IsValid(ent:GetParent()) then
+				-- Do nothing
 			else
 				if ent.defgrav then
 					ent:SetGravity(1)
